@@ -10,3 +10,12 @@ Route::group(array('prefix' => 'user/training' , 'middleware' => 'user','as'=>'u
     Route::get('index',['as' => 'training.index','uses' =>'TrainingController@index']);
     Route::post('request',['as' => 'training.request','uses' =>'TrainingController@request']);
 });
+
+
+Route::group(array('prefix' => 'user' ), function(){
+    
+    Route::get('signin',['as' => 'signin','uses' =>'AuthController@getSignin']);
+    Route::post('signin',['as' => 'signin','uses' =>'AuthController@postSignin']);
+    Route::get('logout',['as' => 'logout' , 'uses' => 'AuthController@getLogout']);
+    
+});

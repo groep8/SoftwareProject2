@@ -32,7 +32,7 @@ public function handle($request, Closure $next){
 
         }
         else{
-            return redirect()->route('admin.home.index');
+            return redirect()->route('admin.index');
         }
     }
     else{

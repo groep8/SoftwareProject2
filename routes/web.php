@@ -13,5 +13,5 @@ include_once 'web_admin.php';
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('login');
 });

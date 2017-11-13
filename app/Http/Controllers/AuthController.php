@@ -17,5 +17,67 @@ use View;
 
 class AuthController extends BaseController
 {
-    use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
-}
+    /*
+    *
+    *
+    * @return view
+    */
+    public function getSignin()
+    {
+
+        if (Sentinel::check()){
+            if (Sentinel::getUser()->inRole('user')){
+                return Redirect::route('user.index');
+
+
+            }
+
+            else {
+                return Redirect::route('admin.index');
+            }
+   
+        }
+        else {
+            return view('login');
+        }
+
+
+    }
+    /**
+     * 
+     * @param Request $request 
+     * @return Redirect
+     */
+    public function postSignIn(Request $request)
+    {
+
+            if(Sentinel::authenticate($request->only(['username','password']),$request->get('remember-me',false))){
+
+                $user = Sentinel::getUser();
+                if($user->inRole('user')){
+                    return Redirect::route("user.index");
+                }
+                else {
+                    return Redirect::route("admin.index");
+                }
+
+
+            }
+
+
+
+
+    }
+    /**
+     * 
+     * @return Redirect
+     */
+    public function getLogout(){
+
+        Sentinel::logout;
+        return redirect('../login')->with('success','logged out');
+
+    }
+    }
+
+

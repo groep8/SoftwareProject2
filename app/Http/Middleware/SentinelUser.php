@@ -7,7 +7,7 @@ use App\Task;
 use Closure;
 use Sentinel;
 
-class SentinelAdmin{
+class SentinelUser{
 
     /**
     *
