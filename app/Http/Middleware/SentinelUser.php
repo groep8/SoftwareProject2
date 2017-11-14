@@ -25,6 +25,7 @@ public function handle($request, Closure $next){
         if (Sentinel::inRole('user')){
             
             
+            
             return $next($request);
 
 
