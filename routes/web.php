@@ -12,13 +12,9 @@ include_once 'web_admin.php';
 |
 */
 
-Route::get('/', function () {
-    return view('login');
-});
+Route::get('/',['uses'=>'AuthController@home'] );
+Route::get('login',['uses'=>'AuthController@home'] );
 
-Route::get('login', function () {
-    return view('login');
-});
 Route::post('signin',['as' => 'signin','uses' =>'AuthController@postSignin']);
 
 Route::group(array('prefix' => 'admin' ), function(){

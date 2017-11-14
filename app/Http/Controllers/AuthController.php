@@ -7,7 +7,6 @@ use Cartalyst\Sentinel\Checkpoints\ThrottlingException;
 use Cartalyst\Sentinel\Laravel\Facades\Activation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\MessageBag;
 
 use Lang;
 use Mail;
@@ -16,31 +15,19 @@ use Sentinel;
 use URL;
 use Validator;
 use View;
+use MessageBag;
 
 class AuthController extends MainController
 {
 
-     /**
-     * 
-     * 
-     * @var Illuminate\Support\MessageBag
-     */
-    protected $messageBag = null;
-    /**
-     * 
-     * Init
-     */
-    public function _construct()
-        {
-            $this->$messageBag = new MessageBag;
-        }
     
+
     /*
     *
     *
     * @return view
     */
-    public function getSignin()
+    public function home()
     {
 
         if (Sentinel::check()){
@@ -68,6 +55,8 @@ class AuthController extends MainController
      */
     public function postSignin(Request $request)
     {
+        
+
         try {
             
             
@@ -92,7 +81,7 @@ class AuthController extends MainController
             
    
             
-            $this->messageBag->add('username' ,'doesnt exist');
+            $this->messageBag->add('username' ,'Account niet gevonden');
             
         
         
@@ -100,14 +89,14 @@ class AuthController extends MainController
         catch (NotActivatedException $e) {
             if($e !=null){
                 
-            $this->messageBag->add('username', Lang::get('auth/message.account_not_activated'));
+            $this->messageBag->add('username', 'Account niet geactiveerd');
             }
         }
         catch (ThrottlingException $e) {
             if($e !=null){
-                dd($e);
+                
             $delay = $e->getDelay();
-            $this->messageBag->add('username', Lang::get('auth/message.account_suspended', compact('delay')));
+            $this->messageBag->add('username', 'Toegang verboden tot het platform  voor '.$delay.' seconden');
         }}
         // Ooops.. something went wrong
         return Redirect::back()->withInput()->withErrors($this->messageBag);

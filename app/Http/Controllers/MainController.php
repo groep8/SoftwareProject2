@@ -15,16 +15,17 @@ class MainController extends Controller
     /**
      * 
      * 
-     * @var Illuminate\Support\MessageBag
+     * @var Illuminate\Contracts\Support\MessageBag
      */
     protected $messageBag = null;
     /**
      * 
-     * Init
+     * Initializer.
      */
-    public function _construct()
+    public function __construct()
         {
-            $this->$messageBag = new MessageBag;
+            $this->messageBag = new MessageBag;
+           
         }
     
 

@@ -100,6 +100,12 @@
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
+.help-block{
+    color:red;
+    font-weight: 800;
+
+    
+}
 
         </style>
     </head>
@@ -112,14 +118,20 @@
                 <div class="title m-b-md">
                     Login
                 </div>
-                <form class="form-signin" action="{{ route('signin') }}" autocomplete="on" method="post" role="form">       
+                <form class="form-signin {{$errors->first('username','has-error')}} " action="{{ route('signin') }}" autocomplete="on" method="post" role="form">       
                     <h2 class="form-signin-heading">Inloggen</h2>
                     
                     <input type="hidden" name="_token" value="{{ csrf_token()}}">
                     <input type="text" class="form-control" name="username" placeholder="Email Address" required="" autofocus="" />
-                    <?php echo $errors->login->first('email'); ?>
+                    <div class="col-sm-12">
+                    
+                    {!! $errors->first('username','<span class="help-block">:message</span>')!!}
+                    </div>
                     <input type="password" class="form-control" name="password" placeholder="Password" required=""/>
-                    <?php echo $errors->login->first('email'); ?>
+                    <div class="col-sm-12">
+                    
+                    {!! $errors->first('password','<span class="help-block">:message</span>')!!}
+                    </div>
                     
                     <input  value="Login" class="btn btn-lg btn-primary btn-block" type="submit">   
                 </form>
