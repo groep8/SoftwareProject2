@@ -4,6 +4,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -32,7 +33,9 @@ public class ConfirmBox {
 			window.close();
 		});
 		VBox layout= new VBox();
-		layout.getChildren().addAll(msgInCB, yesButton, noButton);
+		HBox lay = new HBox(yesButton, noButton);
+		lay.setAlignment(Pos.CENTER);
+		layout.getChildren().addAll(msgInCB, lay);
 		layout.setAlignment(Pos.CENTER);
 		Scene scene = new Scene(layout);
 		window.setScene(scene);

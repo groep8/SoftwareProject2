@@ -6,6 +6,7 @@ import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 //import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
@@ -15,10 +16,13 @@ import javafx.stage.Stage;
 public class Window extends Application {
 	private Stage WindowStage;
 	private Scene WindowScene;
+	private Login log;
+	
 	@Override
 	public void start(Stage primeStage) throws Exception {
 		WindowStage = primeStage;
 		WindowStage.setTitle("Login to the program.");
+		log = new Login();
 		//create "Enter username"
 		Label name = new Label();
 		name.setText("Username:");
@@ -27,11 +31,15 @@ public class Window extends Application {
 		//create "Enter pass"
 		Label pass = new Label();
 		pass.setText("Password:");
-		TextField userPass = new TextField();
+		PasswordField userPass = new PasswordField();
 		userPass.setPromptText("Enter your password");
 		//create log in button to accept creditentials
 		Button loginB = new Button("Log in");
-		
+		loginB.setOnAction(e -> {
+			log.setPassword(userPass.getText());
+			log.setUsername(userName.getText());
+			System.out.println("LogName: " + log.getUsername() + "LogPass: " + log.getPassword());
+		});
 		//adding grid
 		GridPane grid = new GridPane();
 		//setting grid up/		
@@ -57,13 +65,14 @@ public class Window extends Application {
 		
 	}
 	private void close() {
-		Boolean sureExit = ConfirmBox.display("Exit", "Are you sure you want to exit the program?");
+		boolean sureExit = ConfirmBox.display("Exit", "Are you sure you want to exit the program?");
 		if(sureExit == true) {
 			WindowStage.close();
 		}
 	}
 	public static void main(String[] args) {
 		launch(args);
+		
 	}
 
 	
