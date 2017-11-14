@@ -15,3 +15,25 @@ include_once 'web_admin.php';
 Route::get('/', function () {
     return view('login');
 });
+
+Route::get('login', function () {
+    return view('login');
+});
+Route::post('signin',['as' => 'signin','uses' =>'AuthController@postSignin']);
+
+Route::group(array('prefix' => 'admin' ), function(){
+    
+    Route::get('signin',['as' => 'signin','uses' =>'AuthController@getSignin']);
+    Route::post('signin',['as' => 'signin','uses' =>'AuthController@postSignin']);
+    Route::get('logout',['as' => 'logout' , 'uses' => 'AuthController@getLogout']);
+    
+});
+
+
+Route::group(array('prefix' => 'user' ), function(){
+    
+    Route::get('signin',['as' => 'signin','uses' =>'AuthController@getSignin']);
+    Route::post('signin',['as' => 'signin','uses' =>'AuthController@postSignin']);
+    Route::get('logout',['as' => 'logout' , 'uses' => 'AuthController@getLogout']);
+    
+});

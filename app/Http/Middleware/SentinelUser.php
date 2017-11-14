@@ -21,18 +21,23 @@ public function handle($request, Closure $next){
 
 
 
+    if(Sentinel::check()){
+        if (Sentinel::inRole('user')){
+            
+            
+            return $next($request);
 
-    if (Sentinel::check()){
-        if ($request->ajax()){
+
+        }
+        elseif (Sentinel::inRole('admin')) {
             return response('Unauthorized',401);
         }
         else{
-            return redirect()->route('login');
+            return redirect()->route('user.index');
         }
     }
-    if(Sentinel::inRole('user'))
-        return redirect()->route('user.home.index');
-    
+    else{
+        return redirect('login')->with('warning','You must be logged in');
 
     }
 
@@ -41,6 +46,8 @@ public function handle($request, Closure $next){
 
 
 
+
+}
 
 }
 
