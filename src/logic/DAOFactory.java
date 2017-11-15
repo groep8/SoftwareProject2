@@ -4,8 +4,9 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+
 public class DAOFactory {
-	private String url, username, password;
+	public String url, username, password;
 	public DAOFactory(String url, String username, String password) {
 		this.url = url;
 		this.username = username;
@@ -15,10 +16,10 @@ public class DAOFactory {
 		try {
 			Class.forName("com.jdbc.mysql.Driver");
 		}
-		catch(Exception e) {
-			System.out.println(e.getMessage());
+		catch(ClassNotFoundException e) {
+			e.printStackTrace();
 		}
-		DAOFactory instance = new DAOFactory("jdbc:mysql://dt5.ehb.be/","SP2Team08","aqwzsxedc123");
+		DAOFactory instance = new DAOFactory("jdbc:mysql://dt5.ehb.be/SP2Team08","SP2Team08","aqwzsxedc123");
 		return instance; 
 	}
 	public Connection getConnection() throws SQLException{

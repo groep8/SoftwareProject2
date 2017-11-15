@@ -1,5 +1,7 @@
 package logic;
 
+import javax.swing.plaf.synth.SynthSeparatorUI;
+
 import javafx.application.Application;
 import javafx.geometry.Insets;
 //import javafx.geometry.Pos;
@@ -35,11 +37,7 @@ public class Window extends Application {
 		userPass.setPromptText("Enter your password");
 		//create log in button to accept creditentials
 		Button loginB = new Button("Log in");
-		loginB.setOnAction(e -> {
-			log.setPassword(userPass.getText());
-			log.setUsername(userName.getText());
-			System.out.println("LogName: " + log.getUsername() + "LogPass: " + log.getPassword());
-		});
+		
 		//adding grid
 		GridPane grid = new GridPane();
 		//setting grid up/		
@@ -60,6 +58,21 @@ public class Window extends Application {
 		WindowStage.setOnCloseRequest(e -> {
 			e.consume();
 			close();
+		});
+		loginB.setOnAction(e -> {
+			log.setPassword(userPass.getText());
+			log.setUsername(userName.getText());
+			DAOFactory df = DAOFactory.getInstance();
+			LoginDAOimpl daoLog = df.getLoginDAO();
+			Login temp = daoLog.getLogin(log.getUsername());
+			if(log.getPassword() == temp.getPassword()) {
+				System.out.println("You succesfully logged into the program");
+			} else {
+				System.out.println("Wrong password for " + temp.getUsername());
+				System.out.println(log.getPassword() + " " + log.getPassword().length());
+				System.out.println(temp.getPassword() + " " + temp.getPassword().length());
+			}
+			
 		});
 		WindowStage.show();
 		
