@@ -40,7 +40,7 @@ public class Login {
 	}
 	@Override
 	public String toString() {
-		return "Login [id=" + id + ", personeelId=" + personeelId + ", username=" + username + ", password=" + password	+ "]";
+		return "Login:  User=" + username + ", Password=" + password;
 	}
 
 	@Override

@@ -1,8 +1,13 @@
 package logic;
 
+import java.awt.event.MouseEvent;
+import java.util.function.LongToDoubleFunction;
+
 import javax.swing.plaf.synth.SynthSeparatorUI;
 
 import javafx.application.Application;
+import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 //import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -60,20 +65,26 @@ public class Window extends Application {
 			close();
 		});
 		loginB.setOnAction(e -> {
+
 			log.setPassword(userPass.getText());
 			log.setUsername(userName.getText());
 			DAOFactory df = DAOFactory.getInstance();
 			LoginDAOimpl daoLog = df.getLoginDAO();
 			Login temp = daoLog.getLogin(log.getUsername());
-			if(log.getPassword() == temp.getPassword()) {
-				System.out.println("You succesfully logged into the program");
-			} else {
-				System.out.println("Wrong password for " + temp.getUsername());
-				System.out.println(log.getPassword() + " " + log.getPassword().length());
-				System.out.println(temp.getPassword() + " " + temp.getPassword().length());
-			}
+			
+			//Quick fix
+			Label logL = new Label("Ingegeven door user: " + log.toString());
+			Label logTempL = new Label("Info van de database: " + temp.toString());
+			GridPane.setConstraints(logL, 7,7);
+			GridPane.setConstraints(logTempL, 7,8);
+			grid.getChildren().addAll(logL, logTempL);
+			Button bLogClean = new Button("Clean screen");
+			
+			//System.out.println(log.toString());
+			//System.out.println(temp.toString());
 			
 		});
+		
 		WindowStage.show();
 		
 	}
