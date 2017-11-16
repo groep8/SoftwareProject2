@@ -107,8 +107,8 @@ class AuthController extends MainController
      */
     public function getLogout(){
 
-        Sentinel::logout;
-        return redirect('../login')->with('success','logged out');
+        Sentinel::logout();
+        return redirect('login')->with('success','logged out');
 
     }
     }

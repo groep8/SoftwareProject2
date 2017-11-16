@@ -80,6 +80,7 @@
     @yield('header_styles')
 </head>
 <body>
+
 @yield('content')
 @yield('footer_scripts')
 <a class="logout" href="{{ route('logout') }}" >Logout</a>
