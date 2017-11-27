@@ -21,6 +21,7 @@ public class LoginDAOimpl implements LoginDAO{
 		Connection conn = null;
 		PreparedStatement ps = null;
 		String query = "SELECT username, password from Login where username = ?";
+		//when the username is entered, it must already be hashed through SHA512, never send a package wiht clear text
 		Login log = null;
 		ResultSet rs = null;
 		try {
@@ -30,6 +31,7 @@ public class LoginDAOimpl implements LoginDAO{
 			rs = ps.executeQuery();
 			if(rs.next()) {
 				 log = new Login(rs.getString("username"), rs.getString("password"));
+				 //password here must also already be hashed in the database so the send pakages won't be in clear text and make them unsiffable
 			} 
 			rs.close();
 			conn.close();

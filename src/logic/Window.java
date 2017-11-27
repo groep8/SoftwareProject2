@@ -78,11 +78,9 @@ public class Window extends Application {
 			GridPane.setConstraints(logL, 7,7);
 			GridPane.setConstraints(logTempL, 7,8);
 			grid.getChildren().addAll(logL, logTempL);
-			Button bLogClean = new Button("Clean screen");
-			
 			//System.out.println(log.toString());
 			//System.out.println(temp.toString());
-			
+			//SLimmer sql eerst opvragen van users sjonas
 		});
 		
 		WindowStage.show();
