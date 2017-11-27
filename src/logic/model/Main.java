@@ -4,6 +4,9 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+
 import database.TrainingDAO;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -16,6 +19,7 @@ import javafx.stage.Stage;
 public class Main extends Application{
 	private static Stage primaryStage;
 	public static Stage addDialogStage;
+	public static SessionFactory factory;
 	
 	@Override
 	public void start(Stage primaryStage) throws IOException {
@@ -87,7 +91,13 @@ public class Main extends Application{
 	}
 	
 	public static void main(String[] args) {
+		factory = new Configuration()
+				.configure()
+				.addAnnotatedClass(Training.class)
+				.addAnnotatedClass(TrainingDetail.class)
+				.buildSessionFactory();
 		launch(args);
+		factory.close();
 	}
 	
 

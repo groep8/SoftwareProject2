@@ -3,38 +3,38 @@ package database;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.query.Query;
 
+import model.Main;
 import model.Training;
+import model.TrainingDetail;
 
 
 public class TrainingDAO {
 	
-	public static void saveTraining(Training t) {
-
-	SessionFactory factory = new Configuration()
-			.configure()
-			.addAnnotatedClass(Training.class)
-			.buildSessionFactory();
-
-
-	Session session = factory.getCurrentSession();
-
-
-	try {
-		//Creating new Training object
 	
-		session.beginTransaction();
+	public static boolean saveTraining(TrainingDetail td) {
 
-		//saving the new Training object
-		session.save(t);
+		Session session = Main.factory.getCurrentSession();
 
-		session.getTransaction().commit();
 
-		System.out.println("Done");
+		try {
+			//Creating new Training object
+		
+			session.beginTransaction();
+			
+			//saving the new Training object
+			session.save(td);
 
-	}
-	finally {
-		factory.close();
+			session.getTransaction().commit();	
 		}
-}
+		catch(Exception e) {
+			e.printStackTrace();
+			
+		return false;
+			}
+		
+		return true;
+	}
+	
 }

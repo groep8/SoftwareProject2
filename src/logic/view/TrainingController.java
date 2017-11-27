@@ -1,15 +1,19 @@
 package view;
 
 import java.io.IOException;
+import java.sql.Date;
 import java.sql.SQLException;
+import java.time.LocalDate;
 
 import database.TrainingDAO;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.DatePicker;
 import model.Main;
 import model.Training;
+import model.TrainingDetail;
 
 public class TrainingController {
 	private Main main;
@@ -23,7 +27,7 @@ public class TrainingController {
 	private TextField leerkrachtField;
 	
 	@FXML
-	private TextField datumField;
+	private DatePicker datumField;
 	
 	@FXML
 	private TextField personeelField;
@@ -62,25 +66,46 @@ public class TrainingController {
 		int adres =Integer.parseInt(adresString);
 		String leerkrachtstring = leerkrachtField.getText();
 		int leerkracht =Integer.parseInt(leerkrachtstring);
-		String datum = datumField.getText();
+		LocalDate datum = datumField.getValue();
 		String personeelstring = personeelField.getText();
 		int personeel =Integer.parseInt(personeelstring);
 		
 		
 		Training training = new Training();
 		training.setTrainingNaam(naam);
-		training.setIdAdres(adres);
-		training.setIdLeerkracht(leerkracht);
-			
-			TrainingDAO.saveTraining(training);
+		training.setAdres(adres);
+		training.setLeerkracht(leerkracht);
+
+		
+		TrainingDetail trainingd = new TrainingDetail();
+		trainingd.setPersoneel(personeel);
+		trainingd.setDatum(datum);
+		trainingd.setStatus("ok");
+		trainingd.setTraining(training);
+		if(TrainingDAO.saveTraining(trainingd)) {
+		
 			Alert alert = new Alert(AlertType.INFORMATION);
 			alert.setTitle("Confirmation");
 			alert.setContentText("Training aangemaakt");
 			alert.setHeaderText(null);
 			alert.showAndWait();
 			Main.addDialogStage.close();
-		
+		}
+		else {
+			Alert alert = new Alert(AlertType.INFORMATION);
+			alert.setTitle("Confirmation");
+			alert.setContentText("Training niet aangemaakt, foutieve invoer");
+			alert.setHeaderText(null);
+			alert.showAndWait();
+			Main.addDialogStage.close();
+		}
 	
 	}
+	 public void cancel() {
+
+			
+			Main.addDialogStage.close();
+	 }
+	
 
 }
