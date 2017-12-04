@@ -77,9 +77,8 @@ public class Main extends Application{
 		primaryStage.show();
 	}
 	public static void showAddStage() throws IOException {
-		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(Main.class.getResource("/view/addNewTraining.fxml"));
-		BorderPane addNewtraining= loader.load();
+		
+		BorderPane addNewtraining= FXMLLoader.load(Main.class.getResource("/view/addNewTraining.fxml"));
 		addDialogStage= new Stage();
 		addDialogStage.setResizable(false);
 		addDialogStage.setTitle("Add New Training");
@@ -89,12 +88,22 @@ public class Main extends Application{
 		addDialogStage.setScene(scene);
 		addDialogStage.showAndWait();
 	}
+	public static void showUpdateStageName() throws IOException {
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(Main.class.getResource("/view/UpdateName.fxml"));
+		Parent root = loader.load();
+		Scene scene = new Scene(root);
+		primaryStage.setScene(scene);
+		primaryStage.show();
+	}
 	
 	public static void main(String[] args) {
 		factory = new Configuration()
 				.configure()
 				.addAnnotatedClass(Training.class)
 				.addAnnotatedClass(TrainingDetail.class)
+				.addAnnotatedClass(Adres.class)
+				.addAnnotatedClass(Leerkracht.class)
 				.buildSessionFactory();
 		launch(args);
 		factory.close();
