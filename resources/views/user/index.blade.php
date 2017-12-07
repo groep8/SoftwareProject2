@@ -16,7 +16,7 @@ Laravel
         <div class="container">
             <div class="row">
                 
-                <div class="col-sm-4 text-center">
+                <div class="col-sm-6 text-center">
                 <h1>My requests</h1>
                 <div id="myrequests"></div>
                 <br>
@@ -36,11 +36,16 @@ Laravel
                         </div>
                               
                                 <div class="modal-body">
-                                
+                               <form>
+                                <p>Trainingnaam</p>
+                                <input type="text" id="training" name ="training"  required>
+                                <p>Startdatum</p>
+                                <input type="text" id="datepicker" name ="date"  required>
                                 </div>
                             <div class="modal-footer">
                                 <button type="button" id="close-add" class="btn btn-default">Close</button>
-                                <button type="submit" id="upload" class="btn btn-primary start"><i class="glyphicon glyphicon-upload"></i><span> Send</span></button>
+                                <button type="button" id="upload" class="btn btn-primary start"><i class="glyphicon glyphicon-upload"></i><span> Send</span></button>
+                               </form>
                             </div>
                     </div>
                 </div>
@@ -50,7 +55,9 @@ Laravel
 @stop
 
 @section('footer_scripts')
+
 <script>
+
 $(document).on('click', '#addbutton', function(e) {
     e.stopPropagation();
     $("#add").css("opacity","0");
@@ -104,7 +111,7 @@ $( document ).ready(function() {
                    
                    $.ajax({
                        contentType: "application/json; charset=utf-8",
-                       url: "getrequests",
+                       url: 'user/getrequests',
                        dataType: "json"
                        }).done(function(response){
                            console.log(response);
@@ -150,9 +157,10 @@ $( document ).ready(function() {
    
            fields: [
                { title: "Training naam", name: "naamTraining", type: "text", width: 40, readOnly: true },
-               { title: "Datum", name: "datum", type: "text", width: 30, readOnly: true },
+               { title: "Datum Request", name: "datum", type: "text", width: 30, readOnly: true },
+               { title: "Start", name: "start", type: "text", width: 40, readOnly: true },
                { title: "Status", name: "status", type: "text", width: 30, readOnly: true },
-              
+               
            ]
            
        });
@@ -165,28 +173,66 @@ $( document ).ready(function() {
 
 
 </script>
-
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.js"></script>
 <script>
-$(document).ready(function() {
-
-    
-    /* while($("#myrequests").val() == ""){
-        if($("#myrequests").val() != ""){
-            var arrayOfRows = $("tr[class*='jsgrid-'] > td:nth-child(3)");
-            break
-        }
-        
-        
-        
-    }
-    
-    console.log(arrayOfRows);
-    */
- 
-   
+    $(document).ready(function(){
 
 
-});
+
+        $('#datepicker').datepicker({
+            format: 'yyyy/mm/dd',
+            startDate: '1d'
+        });
+
+    })
+</script>
+<script>
+$(document).on('click', '#upload', function () {
+    var training = $('#training').val();
+    var date = $("#datepicker").val();
+    console.log(training + " "+ date);  
+    var provData = {
+    'training' : training,
+    'date' : date,
+    '_token': "{{ csrf_token() }}"
+    };
+
+swal({
+    title: 'Bevestigen?',
+    text: 'Is dit informatie juist ?',
+    type: 'warning',
+    showCancelButton: true,
+    confirmButtonText: 'Ja',
+    cancelButtonText: 'Nee'
+    }).then((result) => {
+    if (result.value) {
+
+        
+    $.ajax({
+        type: 'PATCH',
+        url: 'user/postrequest',
+        data: provData
+    }).done(function(data){
+        console.log("Response ajax : "+data);
+        console.log(typeof data['textStatus']);
+        console.log( data['textStatus']);
+        $('#myrequests').jsGrid("loadData");
+        $('#add').fadeOut();
+        swal(
+    'Bevestigd',
+    'Request gestuurd naar de manager',
+    'success'
+    ).catch(swal.noop)
+    })
+    } 
+    else if (result.dismiss === 'cancel') {
+    swal(
+    'Niet bevestigd',
+    'Request geannuleerd',
+    'error'
+    ).catch(swal.noop)
+}
+})});
 </script>
 
 

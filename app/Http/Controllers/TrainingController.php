@@ -10,6 +10,7 @@ use View;
 use PDO;
 use Response;
 use App\Http\Requests\TrainingConfirmRequest;
+use App\Http\Requests\TrainingAddRequest;
 use App\Http\Requests\TrainingUndoRequest;
 use Illuminate\Support\Collection;
 
@@ -46,7 +47,7 @@ class TrainingController extends Controller
 
     public function getPending(){
 
-        $query="SELECT id,naamTraining,naamEmployee,adres,datum FROM confirmations WHERE confirmed_at IS NULL";
+        $query="SELECT id,naamTraining,naamEmployee,adres,datum,begin FROM confirmations WHERE confirmed_at IS NULL";
         try {
             $conn = new PDO("mysql:host=localhost;dbname=soft2", "root","");
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -66,7 +67,7 @@ class TrainingController extends Controller
             $adres = (string)$test[$i]["adres"];
             $datum = (string)$test[$i]["datum"];
             $naamEmployee = (string)$test[$i]["naamEmployee"];
-           
+            $start = (string)$test[$i]["begin"];
             
     
             $collection->push([
@@ -74,7 +75,8 @@ class TrainingController extends Controller
                 'naamTraining' => $naamTraining,
                 'adres' => $adres,
                 'datum' => $datum,
-                'naamEmployee' => $naamEmployee
+                'naamEmployee' => $naamEmployee,
+                'start' => $start
                 ]);
     
             }
@@ -96,7 +98,7 @@ class TrainingController extends Controller
 
     public function getConfirmed(){
         
-                $query="SELECT id,naamTraining,naamEmployee,adres,datum FROM confirmations WHERE confirmed_at IS NOT NULL";
+                $query="SELECT id,naamTraining,naamEmployee,adres,datum,begin FROM confirmations WHERE confirmed_at IS NOT NULL";
                 try {
                     $conn = new PDO("mysql:host=localhost;dbname=soft2", "root","");
                     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -116,7 +118,8 @@ class TrainingController extends Controller
                     $adres = (string)$test[$i]["adres"];
                     $datum = (string)$test[$i]["datum"];
                     $naamEmployee = (string)$test[$i]["naamEmployee"];
-                   
+                    $start = (string)$test[$i]["begin"];
+                    
                     
             
                     $collection->push([
@@ -124,7 +127,8 @@ class TrainingController extends Controller
                         'naamTraining' => $naamTraining,
                         'adres' => $adres,
                         'datum' => $datum,
-                        'naamEmployee' => $naamEmployee
+                        'naamEmployee' => $naamEmployee,
+                        'start' => $start
                         ]);
             
                     }
@@ -171,9 +175,29 @@ class TrainingController extends Controller
 
 
     }
+    public function postRequests(TrainingAddRequest $request){
+
+        $user  = Sentinel::getUser()->username;
+        $date = $request->date;
+        $timenow = date("Y-m-d");
+        $training  = $request->training;
+        $db = new PDO ( "mysql:host=localhost;dbname=soft2", "root","" );
+        $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $sql = "INSERT INTO confirmations(naamTraining,naamEmployee,datum,begin) VALUES (:sql_naamTraining ,:sql_naamEmployee , :sql_datum,:sql_begin)";
+        $stmt = $db->prepare($sql);
+        $stmt->bindParam ( ':sql_naamTraining', $training);
+        $stmt->bindParam ( ':sql_naamEmployee', $user);
+        $stmt->bindParam ( ':sql_datum', $timenow );
+        $stmt->bindParam ( ':sql_begin', $date);
+        $stmt->execute();
+        $db = null;
+        return "success";
+        
+        
+    }
     public function getrequests(){
         $user  = Sentinel::getUser()->username;
-        $query="SELECT id,naamTraining,naamEmployee,adres,datum,confirmed_at FROM confirmations WHERE made_by ='".$user."'";
+        $query="SELECT id,naamTraining,naamEmployee,adres,datum,confirmed_at,begin FROM confirmations WHERE naamEmployee ='".$user."'";
         try {
             $conn = new PDO("mysql:host=localhost;dbname=soft2", "root","");
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -200,7 +224,8 @@ class TrainingController extends Controller
             else{
                 $status = "Confirmed at ".(string)$test[$i]["confirmed_at"]; 
             }
-             
+            $start = (string)$test[$i]["begin"];
+            
            
             
     
@@ -210,7 +235,8 @@ class TrainingController extends Controller
                 'adres' => $adres,
                 'datum' => $datum,
                 'naamEmployee' => $naamEmployee,
-                'status' =>$status
+                'status' =>$status,
+                'start' =>$start
                 ]);
     
             }
