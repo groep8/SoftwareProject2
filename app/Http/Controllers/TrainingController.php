@@ -171,4 +171,61 @@ class TrainingController extends Controller
 
 
     }
+    public function getrequests(){
+        $user  = Sentinel::getUser()->username;
+        $query="SELECT id,naamTraining,naamEmployee,adres,datum,confirmed_at FROM confirmations WHERE made_by ='".$user."'";
+        try {
+            $conn = new PDO("mysql:host=localhost;dbname=soft2", "root","");
+            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $stmt = $conn->prepare($query); 
+            $stmt->execute();
+        
+            // set the resulting array to associative
+            $test = $stmt->setFetchMode(PDO::FETCH_ASSOC); 
+            $test = $stmt->fetchAll();
+            $collection = new Collection();        
+            $count = count($test);
+    
+            for ($i = 0; $i < $count ; $i++) { 
+                
+            $id = (string)$test[$i]["id"]; 
+            $naamTraining = (string)$test[$i]["naamTraining"];
+            $adres = (string)$test[$i]["adres"];
+            $datum = (string)$test[$i]["datum"];
+            $naamEmployee = (string)$test[$i]["naamEmployee"];
+            $status = null;
+            if((string)$test[$i]["confirmed_at"] == null){
+                $status = "<p style='color:red'>Pending</p>";
+            }
+            else{
+                $status = "Confirmed at ".(string)$test[$i]["confirmed_at"]; 
+            }
+             
+           
+            
+    
+            $collection->push([
+                'id' => $id,
+                'naamTraining' => $naamTraining,
+                'adres' => $adres,
+                'datum' => $datum,
+                'naamEmployee' => $naamEmployee,
+                'status' =>$status
+                ]);
+    
+            }
+            
+                return $collection->toJson();
+            
+            
+        }
+        catch(PDOException $e) {
+            echo "Error: " . $e->getMessage();
+        }
+        $conn = null;
+        
+    
+      
+    
+    }
 }

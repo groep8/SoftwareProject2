@@ -76,6 +76,14 @@
             .m-b-md {
                 margin-bottom: 30px;
             }
+            tr[class*="jsgrid-"] > td:nth-child(3){
+                color: #66ff66;
+                font-weight: 900;
+            }
+            .add-request{
+                border-radius:30px;
+                padding:6px 12px;
+            }
         </style>
     @yield('header_styles')
 </head>
