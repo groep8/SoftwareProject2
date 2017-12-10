@@ -26,15 +26,9 @@ public class Login implements java.io.Serializable {
 	public Login() {
 	}
 
-	public Login(Personeel personeel, String username, String password) {
-		this.personeel = personeel;
-		this.username = username;
-		this.password = password;
-	}
 
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
-
 	@Column(name = "idLogin", unique = true, nullable = false)
 	public Integer getIdLogin() {
 		return this.idLogin;
@@ -71,5 +65,28 @@ public class Login implements java.io.Serializable {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Login other = (Login) obj;
+		if (password == null) {
+			if (other.password != null)
+				return false;
+		} else if (!password.equals(other.password))
+			return false;
+		if (username == null) {
+			if (other.username != null)
+				return false;
+		} else if (!username.equals(other.username))
+			return false;
+		return true;
+	}
+	
 
 }

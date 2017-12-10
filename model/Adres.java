@@ -51,7 +51,6 @@ public class Adres implements java.io.Serializable {
 
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
-
 	@Column(name = "idAdres", unique = true, nullable = false)
 	public Integer getIdAdres() {
 		return this.idAdres;

@@ -1,6 +1,7 @@
 /.metadata/
-/model/
-/softwareproject/
-/view/
 /logic/
-/hibernate.cfg.xml
+/database/
+/model/
+/view/
+/controller/
+/src/

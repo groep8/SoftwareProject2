@@ -3,10 +3,12 @@ package model;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.util.ArrayList;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
+import database.LoginDAO;
 import database.TrainingDAO;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -25,8 +27,9 @@ public class Main extends Application{
 	public void start(Stage primaryStage) throws IOException {
 		this.primaryStage=primaryStage;
 		this.primaryStage.setTitle("Groep 8 App");
-		Parent root = FXMLLoader.load(getClass().getResource("/view/MainView.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("/view/Scenelogin.fxml"));
 		Scene scene = new Scene(root);
+		scene.setRoot(root);
 		primaryStage.setScene(scene);
 		primaryStage.show();
 		primaryStage.setResizable(false);
@@ -68,6 +71,15 @@ public class Main extends Application{
 		primaryStage.setScene(scene);
 		primaryStage.show();
 	}
+	public static void DBBackView() throws IOException {
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(Main.class.getResource("/view/DBBackUpView.fxml"));
+		Parent root = loader.load();
+		Scene scene = new Scene(root);
+		primaryStage.setScene(scene);
+		primaryStage.show();
+	}
+	
 	public static void OptionView() throws IOException {
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(Main.class.getResource("/view/OptionsView.fxml"));
@@ -77,9 +89,8 @@ public class Main extends Application{
 		primaryStage.show();
 	}
 	public static void showAddStage() throws IOException {
-		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(Main.class.getResource("/view/addNewTraining.fxml"));
-		BorderPane addNewtraining= loader.load();
+		
+		BorderPane addNewtraining= FXMLLoader.load(Main.class.getResource("/view/addNewTraining.fxml"));
 		addDialogStage= new Stage();
 		addDialogStage.setResizable(false);
 		addDialogStage.setTitle("Add New Training");
@@ -89,12 +100,25 @@ public class Main extends Application{
 		addDialogStage.setScene(scene);
 		addDialogStage.showAndWait();
 	}
+	public static void showUpdateStageName() throws IOException {
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(Main.class.getResource("/view/UpdateName.fxml"));
+		Parent root = loader.load();
+		Scene scene = new Scene(root);
+		primaryStage.setScene(scene);
+		primaryStage.show();
+	}
+	
 	
 	public static void main(String[] args) {
 		factory = new Configuration()
 				.configure()
 				.addAnnotatedClass(Training.class)
 				.addAnnotatedClass(TrainingDetail.class)
+				.addAnnotatedClass(Adres.class)
+				.addAnnotatedClass(Leerkracht.class)
+				.addAnnotatedClass(Login.class)
+				.addAnnotatedClass(Personeel.class)
 				.buildSessionFactory();
 		launch(args);
 		factory.close();

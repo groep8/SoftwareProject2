@@ -1,0 +1,57 @@
+package view;
+
+import java.io.IOException;
+
+import database.LoginDAO;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.control.TextField;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.PasswordField;
+import model.Login;
+import model.Main;
+
+public class LoginController {
+	private Login logCurrent;
+    @FXML
+    private PasswordField pf_password;
+    @FXML
+    private TextField tf_user;
+
+    @FXML
+    void goHome(ActionEvent event) {
+    	
+    	try {
+    		logCurrent = new Login();
+    		logCurrent.setUsername(tf_user.getText());
+    		logCurrent.setPassword(pf_password.getText());
+    		if(LoginDAO.getLogUser(logCurrent)) {
+    			Main.mainView();
+    	    	this.alert("Success !", "Je bent succesvol ingelogd !", AlertType.INFORMATION);
+    		}
+    		else {
+    	    	this.alert("Username", "Login onmogelijk. ", AlertType.WARNING);
+    		}
+		}
+    	catch(NullPointerException e) {
+    		this.alert("Error","Foutieve gebruikersnaam / paswoord.", AlertType.WARNING);
+    		logCurrent.setUsername("");
+    		logCurrent.setPassword("");	
+    	}
+    	catch (Exception e) {
+			e.printStackTrace();
+		}
+    }
+    public void alert(String title,String message, AlertType al) {
+    	Alert alert = new Alert(al);
+    	alert.setTitle(title);
+    	alert.setContentText(message);
+    	alert.showAndWait();
+    	
+    }
+    @FXML
+    void goAdmin(ActionEvent event) throws IOException{
+    	Main.DBBackView();
+    }
+}

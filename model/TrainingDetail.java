@@ -25,8 +25,6 @@ public class TrainingDetail implements java.io.Serializable {
 	private Integer idTrainingDetail;
 	private int personeel;
 	private Training training;
-	private LocalDate datum;
-	private String status;
 
 	public TrainingDetail() {
 	}
@@ -53,7 +51,7 @@ public class TrainingDetail implements java.io.Serializable {
 		this.personeel = personeel;
 	}
 
-	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinColumn(name = "idTraining", nullable = false)
 	public Training getTraining() {
 		return this.training;
@@ -63,22 +61,5 @@ public class TrainingDetail implements java.io.Serializable {
 		this.training = training;
 	}
 
-	@Column(name = "datum", nullable = false, length = 30)
-	public LocalDate getDatum() {
-		return this.datum;
-	}
-
-	public void setDatum(LocalDate datum2) {
-		this.datum = datum2;
-	}
-
-	@Column(name = "status", nullable = false, length = 25)
-	public String getStatus() {
-		return this.status;
-	}
-
-	public void setStatus(String status) {
-		this.status = status;
-	}
 
 }

@@ -1,22 +1,38 @@
 package view;
 
 import java.io.IOException;
-import java.sql.Date;
 import java.sql.SQLException;
 import java.time.LocalDate;
-
+import javafx.scene.control.TableColumn.CellDataFeatures;
+import javafx.scene.layout.BorderPane;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 import database.TrainingDAO;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.util.Callback;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import model.Adres;
 import model.Main;
 import model.Training;
 import model.TrainingDetail;
-
 public class TrainingController {
 	private Main main;
+	public static Stage secundaireStage;
+	private UpdateTraining upt;
 	@FXML
 	private TextField nameField;
 	
@@ -32,9 +48,11 @@ public class TrainingController {
 	@FXML
 	private TextField personeelField;
 	
+	private static int id;
+	
 	@FXML
 	private void goHome() throws IOException {
-		main.mainView();
+		Main.mainView();
 	}
 	
 	@FXML
@@ -53,59 +71,126 @@ public class TrainingController {
 	private void goOptions() throws IOException {
 		main.OptionView();
 	}
+	
+	@FXML
 	public void addStage() throws IOException {
 		main.showAddStage();
 	}
+
 	
 
-	public void saveTraining() throws SQLException {
-		
-		
-		String naam = nameField.getText();
-		String adresString = adresField.getText();
-		int adres =Integer.parseInt(adresString);
-		String leerkrachtstring = leerkrachtField.getText();
-		int leerkracht =Integer.parseInt(leerkrachtstring);
-		LocalDate datum = datumField.getValue();
-		String personeelstring = personeelField.getText();
-		int personeel =Integer.parseInt(personeelstring);
-		
-		
-		Training training = new Training();
-		training.setTrainingNaam(naam);
-		training.setAdres(adres);
-		training.setLeerkracht(leerkracht);
-
-		
-		TrainingDetail trainingd = new TrainingDetail();
-		trainingd.setPersoneel(personeel);
-		trainingd.setDatum(datum);
-		trainingd.setStatus("ok");
-		trainingd.setTraining(training);
-		if(TrainingDAO.saveTraining(trainingd)) {
-		
+	@FXML
+	public void UpdateTraining() throws IOException {
+		TrainingDetail d=tableView.getSelectionModel().getSelectedItem();
+		if (d==null) {
 			Alert alert = new Alert(AlertType.INFORMATION);
-			alert.setTitle("Confirmation");
-			alert.setContentText("Training aangemaakt");
+			alert.setTitle("Fout");
+			alert.setContentText("Fout, Niets geselecteerd");
 			alert.setHeaderText(null);
 			alert.showAndWait();
-			Main.addDialogStage.close();
 		}
 		else {
-			Alert alert = new Alert(AlertType.INFORMATION);
-			alert.setTitle("Confirmation");
-			alert.setContentText("Training niet aangemaakt, foutieve invoer");
-			alert.setHeaderText(null);
-			alert.showAndWait();
-			Main.addDialogStage.close();
+		this.id=d.getTraining().getIdTraining();
+		FXMLLoader f = new FXMLLoader(Main.class.getResource("/view/UpdateTraining.fxml"));
+		BorderPane updateTraining= f.load();
+		Stage s = new Stage();
+		TrainingController.secundaireStage=s;
+		s.setResizable(false);
+		s.setTitle("updateTraining");
+		s.initModality(Modality.WINDOW_MODAL);
+		Scene scene= new Scene(updateTraining);
+		s.setScene(scene);
+		UpdateTraining u = f.getController();
+		u.setLabel(d);
+		s.showAndWait();
 		}
-	
+		
+		
 	}
-	 public void cancel() {
+	public void updateName() throws IOException {
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(Main.class.getResource("/view/UpdateName.fxml"));
+		Parent root = loader.load();
+		Scene scene = new Scene(root);
+		secundaireStage.setScene(scene);
+		secundaireStage.show();
+	}
 
-			
-			Main.addDialogStage.close();
-	 }
 	
+	 @FXML 
+	 private TableView<TrainingDetail> tableView;
+	 @FXML 
+	 private TableColumn<TrainingDetail,Integer> trainingId;
+	 @FXML 
+	 private TableColumn<TrainingDetail,String> adres;
+	 @FXML 
+	 private TableColumn<TrainingDetail, String>  trainingNaam;
+	 @FXML 
+	 private TableColumn <TrainingDetail, String> leerkracht;
+	 @FXML 
+	 private TableColumn <TrainingDetail, Integer>personeel;
+	 @FXML 
+	 private TableColumn <TrainingDetail,String >datum;
+	 
 
+	@FXML 
+	public void initialize() {
+
+		trainingId.setCellValueFactory(new Callback<CellDataFeatures<TrainingDetail, Integer>, ObservableValue<Integer>>() {
+		@Override
+		public ObservableValue<Integer> call(CellDataFeatures<TrainingDetail, Integer> data) {
+			return new SimpleIntegerProperty(data.getValue().getTraining().getIdTraining()).asObject();
+		}
+	});
+		
+		trainingNaam.setCellValueFactory(new Callback<CellDataFeatures<TrainingDetail, String>, ObservableValue<String>>() {
+			@Override
+			public ObservableValue<String> call(CellDataFeatures<TrainingDetail, String> data) {
+				return new SimpleStringProperty(data.getValue().getTraining().getTrainingNaam());
+			}
+		});
+		adres.setCellValueFactory(new Callback<CellDataFeatures<TrainingDetail, String>, ObservableValue<String>>() {
+			@Override
+			public ObservableValue<String> call(CellDataFeatures<TrainingDetail, String> data) {
+				return new SimpleStringProperty(data.getValue().getTraining().getAdres().getStraat() + " " + data.getValue().getTraining().getAdres().getHuisnum());
+			}
+		});
+		
+		leerkracht.setCellValueFactory(new Callback<CellDataFeatures<TrainingDetail, String>, ObservableValue<String>>() {
+			@Override
+			public ObservableValue<String> call(CellDataFeatures<TrainingDetail, String> data) {
+				return new SimpleStringProperty(data.getValue().getTraining().getLeerkracht().getVolleNaam());
+			}
+		});
+		
+		personeel.setCellValueFactory(new Callback<CellDataFeatures<TrainingDetail, Integer>, ObservableValue<Integer>>() {
+			@Override
+			public ObservableValue<Integer> call(CellDataFeatures<TrainingDetail, Integer> data) {
+				return new SimpleIntegerProperty(data.getValue().getPersoneel()).asObject();
+			} 
+		});
+		
+		datum.setCellValueFactory(new Callback<CellDataFeatures<TrainingDetail, String>, ObservableValue<String>>() {
+			@Override
+			public ObservableValue<String> call(CellDataFeatures<TrainingDetail, String> data) {
+				return new SimpleStringProperty(data.getValue().getTraining().getDatum().toString());
+			}
+		});
+				
+		ObservableList<TrainingDetail> list = FXCollections.observableArrayList(TrainingDAO.getall());
+		tableView.setItems(list);
+	
+	 }
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	
+	
+	
 }

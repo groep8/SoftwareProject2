@@ -39,7 +39,7 @@ public class ReminderEmail {
 		try {
 			Message message = new MimeMessage(sess);
 			message.setFrom(new InternetAddress(username));
-			message.setRecipients(Message.RecipientType.TO, InternetAddress.parse("info@sparxsolutions.be"));
+			message.setRecipients(Message.RecipientType.TO, InternetAddress.parse("mdexelle@gmail.com"));
 			message.setSubject("Reminder Email Training Groep 8 SP 2");
 			message.setContent("    <head>\r\n" + 
 					"        <style>\r\n" + 
