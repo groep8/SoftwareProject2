@@ -52,6 +52,6 @@ public class LoginController {
     }
     @FXML
     void goAdmin(ActionEvent event) throws IOException{
-    	Main.DBBackView();
+    	Main.MainAdminView();
     }
 }

@@ -11,9 +11,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
 import model.Main;
 
-public class DBBackUpView {
-    @FXML
-    private TextField tf_path;
+public class MainAdminController {
 
     @FXML
     void goEmployees(ActionEvent event) throws IOException{
@@ -38,25 +36,6 @@ public class DBBackUpView {
     @FXML
     void goTraining(ActionEvent event) throws IOException{
     	Main.TrainingView();
-    }
-
-    @FXML
-    void goExplorer(ActionEvent event) {
-    	String path;
-    	String filename;
-    	FileChooser fc = new FileChooser();
-    	fc.showOpenDialog(null);
-    	String date = new SimpleDateFormat("dd/mm/yyyy").format(new Date());
-    	try {
-    		File file = fc.getInitialDirectory();
-    		path = file.getAbsolutePath();
-    		path = path.replace("\\", "/");
-    		path = path + "_" + date + ".sql";
-    		tf_path.setText(path);
-    	}
-    	catch(Exception e) {
-    		e.printStackTrace();
-    	}
     }
 
 }

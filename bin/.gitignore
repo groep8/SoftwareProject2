@@ -1,7 +1,5 @@
-/.metadata/
-/logic/
+/controller/
 /database/
+/logic/
 /model/
 /view/
-/controller/
-/src/
