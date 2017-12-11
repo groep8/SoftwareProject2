@@ -33,6 +33,7 @@ public class TrainingController {
 	private Main main;
 	public static Stage secundaireStage;
 	private UpdateTraining upt;
+	
 	@FXML
 	private TextField nameField;
 	

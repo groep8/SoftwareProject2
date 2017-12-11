@@ -75,7 +75,8 @@ public class addNewTrainingController {
 		}
 	
 	}
-	 public void cancel() {
+	 
+	public void cancel() {
 
 			
 			Main.addDialogStage.close();
