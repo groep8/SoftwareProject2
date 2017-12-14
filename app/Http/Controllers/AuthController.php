@@ -36,7 +36,11 @@ class AuthController extends MainController
 
 
             }
-
+            elseif (Sentinel::getUser()->inRole('hr')) {
+                
+                return Redirect::route('hr.index');
+                
+            }
             else {
                 return Redirect::route('admin.index');
             }
@@ -44,6 +48,7 @@ class AuthController extends MainController
         }
         else {
             return view('login');
+            
         }
 
 
@@ -71,6 +76,11 @@ class AuthController extends MainController
                   
                     return Redirect::route("user.index")->with('success', Lang::get('auth/message.signin.success'));
                 }
+                elseif ($user->inRole('hr')) {
+                    
+                    return Redirect::route("hr.index")->with('success', Lang::get('auth/message.signin.success'));
+                    
+                }
                 else {
                     return Redirect::route("admin.index")->with('success', Lang::get('auth/message.signin.success'));
                 }                
@@ -79,7 +89,7 @@ class AuthController extends MainController
             
     
             
-   
+            
             
             $this->messageBag->add('username' ,'Account niet gevonden');
             

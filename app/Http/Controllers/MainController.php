@@ -41,6 +41,10 @@ class MainController extends Controller
             if(Sentinel::getUser()->inRole('user')){
                 return view('user.index');
             }
+            elseif (Sentinel::getUser()->inRole('hr')) {
+                
+                    return view('hr.index');
+            }
             elseif (Sentinel::getUser()->inRole('admin')) {
 
                 return view('admin.index');
@@ -62,6 +66,18 @@ class MainController extends Controller
             }
             else {
                 return view('admin.404');
+            }
+        }
+        elseif (Sentinel::getUser()->inRole('hr')) {
+            if(View::exists('hr.'.$name))
+            {
+                if(Sentinel::check())
+                return view('hr.'.$name);
+                else
+                return redirect('signin')->with('error','You must be logged in');
+            }
+            else {
+                return view('hr.404');
             }
         }
         else

@@ -7,7 +7,7 @@ use App\Task;
 use Closure;
 use Sentinel;
 
-class SentinelAdmin{
+class SentinelHr{
 
     /**
     *
@@ -23,7 +23,7 @@ public function handle($request, Closure $next){
 
 
     if (Sentinel::check()){
-        if (Sentinel::inRole('admin')){
+        if (Sentinel::inRole('hr')){
             
             
             return $next($request);

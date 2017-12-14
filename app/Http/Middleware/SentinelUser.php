@@ -33,6 +33,9 @@ public function handle($request, Closure $next){
         elseif (Sentinel::inRole('admin')) {
             return response('Unauthorized',401);
         }
+        elseif (Sentinel::inRole('hr')) {
+            return response('Unauthorized',401);
+        }
         else{
             return redirect()->route('user.index');
         }
