@@ -1,5 +1,3 @@
-/controller/
-/database/
-/hibernate.cfg.xml
-/model/
 /view/
+/database/
+/model/

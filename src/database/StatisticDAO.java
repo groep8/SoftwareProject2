@@ -36,7 +36,7 @@ public class StatisticDAO {
 	public static ArrayList<Chartdata> getData(String arg, String archiveString, String table){
 		Session session = Main.factory.getCurrentSession();
 		
-		String az = "SELECT " + arg + ", COUNT(" + arg + ") FROM " + table + " WHERE archief =< " + archiveString;
+		String az = "SELECT " + arg + ", COUNT(" + arg + ") FROM " + table + " group by 1";
 		
 		ArrayList<Chartdata> cdata = null;
 		

@@ -1,6 +1,12 @@
 package model;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "Adres", catalog = "SP2Team08")
 public class Chartdata {
+	
 	String attnaam;
 	int aantal;
 	

@@ -37,10 +37,6 @@ private Main main;
 	private void pie() throws IOException {
 		main.PiechartView();
 	}
-	@FXML
-	private void piea() throws IOException {
-		main.PiechartView();
-	}
 	
 	@FXML
 	private void bar() throws IOException {
@@ -48,17 +44,7 @@ private Main main;
 	}
 	
 	@FXML
-	private void bara() throws IOException {
-		
-	}
-	
-	@FXML
 	private void xy() throws IOException {
-		
-	}
-	
-	@FXML
-	private void xya() throws IOException {
 		
 	}
 	
