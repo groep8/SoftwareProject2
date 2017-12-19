@@ -19,6 +19,17 @@
     
         <!-- Styles -->
         <style>
+        @font-face {
+        font-family: 'Material Icons';
+        font-style: normal;
+        font-weight: 400;
+        src: url(MaterialIcons-Regular.eot); /* For IE6-8 */
+        src: local('Material Icons'),
+             local('MaterialIcons-Regular'),
+             url(https://rawgit.com/google/material-design-icons/master/iconfont/MaterialIcons-Regular.woff2) format('woff2'),
+             url(https://rawgit.com/google/material-design-icons/master/iconfont/MaterialIcons-Regular.woff) format('woff'),
+             url(https://rawgit.com/google/material-design-icons/master/iconfont/MaterialIcons-Regular.ttf) format('truetype');
+      }
             html, body {
                 background-color: #fff;
                 color: #636b6f;
@@ -150,10 +161,41 @@
 
         </style>
     @yield('header_styles')
+  
+   <!-- Compiled and minified CSS -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
 </head>
 <body>
+<div class="container">
+          <!-- TOP MENU -->
+          <div class="row" style="padding-top:10px;">
+              <div class="center-align">
+                <a class="btn blue waves-effect waves-light lighten-1 white-text" href="{{ route('hr.survey') }}"> Home </a>
+                  @if(Sentinel::check())
+                    <a class="btn-flat waves-effect waves-light darken-1 white black-text" href="{{ route('logout') }}"> Logout </a>
+                    <a class="btn-flat disabled" href="#" style="text-transform:none;"></a>
+                  @endif
+                   
+              </div>
+          </div>
+          <div class="row">
+              <div class="col s12 m10 offset-m1 l8 offset-l2" style="margin-top:10px;">          
 @yield('content')
+</div>
+          </div>
+         <!-- End BODY OF PAGE -->
+      </div>
+ 
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+   
 @yield('footer_scripts')
-<a class="logout" href="{{ route('logout') }}" >Logout</a>
+<script>
+$(document).ready(function() {
+    $('select').material_select();
+    console.log("done");
+});
+</script>
 </body>
 </html>

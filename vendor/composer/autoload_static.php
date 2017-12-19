@@ -53,6 +53,7 @@ class ComposerStaticInit530beff9ede7438eaaf4b80a84ac4931
             'Symfony\\Component\\Debug\\' => 24,
             'Symfony\\Component\\CssSelector\\' => 30,
             'Symfony\\Component\\Console\\' => 26,
+            'Skydiver\\LaravelMaterializeCSS\\' => 31,
         ),
         'R' => 
         array (
@@ -188,6 +189,10 @@ class ComposerStaticInit530beff9ede7438eaaf4b80a84ac4931
         array (
             0 => __DIR__ . '/..' . '/symfony/console',
         ),
+        'Skydiver\\LaravelMaterializeCSS\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/skydiver/laravel-materialize-css/src',
+        ),
         'Ramsey\\Uuid\\' => 
         array (
             0 => __DIR__ . '/..' . '/ramsey/uuid/src',
@@ -322,8 +327,10 @@ class ComposerStaticInit530beff9ede7438eaaf4b80a84ac4931
     );
 
     public static $classMap = array (
+        'App\\Answer' => __DIR__ . '/../..' . '/app/Answer.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
+        'App\\Http\\Controllers\\AnswerController' => __DIR__ . '/../..' . '/app/Http/Controllers/AnswerController.php',
         'App\\Http\\Controllers\\AuthController' => __DIR__ . '/../..' . '/app/Http/Controllers/AuthController.php',
         'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
         'App\\Http\\Controllers\\Auth\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/LoginController.php',
@@ -1759,6 +1766,7 @@ class ComposerStaticInit530beff9ede7438eaaf4b80a84ac4931
         'Illuminate\\Support\\NamespacedItemResolver' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Support/NamespacedItemResolver.php',
         'Illuminate\\Support\\Optional' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Support/Optional.php',
         'Illuminate\\Support\\Pluralizer' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Support/Pluralizer.php',
+        'Illuminate\\Support\\ProcessUtils' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Support/ProcessUtils.php',
         'Illuminate\\Support\\ServiceProvider' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Support/ServiceProvider.php',
         'Illuminate\\Support\\Str' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Support/Str.php',
         'Illuminate\\Support\\Testing\\Fakes\\BusFake' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Support/Testing/Fakes/BusFake.php',
@@ -3063,6 +3071,9 @@ class ComposerStaticInit530beff9ede7438eaaf4b80a84ac4931
         'SebastianBergmann\\ResourceOperations\\ResourceOperations' => __DIR__ . '/..' . '/sebastian/resource-operations/src/ResourceOperations.php',
         'SebastianBergmann\\Version' => __DIR__ . '/..' . '/sebastian/version/src/Version.php',
         'SessionUpdateTimestampHandlerInterface' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/SessionUpdateTimestampHandlerInterface.php',
+        'Skydiver\\LaravelMaterializeCSS\\MaterializeCSS' => __DIR__ . '/..' . '/skydiver/laravel-materialize-css/src/MaterializeCSS.php',
+        'Skydiver\\LaravelMaterializeCSS\\MaterializeCSSBuilder' => __DIR__ . '/..' . '/skydiver/laravel-materialize-css/src/MaterializeCSSBuilder.php',
+        'Skydiver\\LaravelMaterializeCSS\\MaterializeCSSServiceProvider' => __DIR__ . '/..' . '/skydiver/laravel-materialize-css/src/MaterializeCSSServiceProvider.php',
         'Symfony\\Component\\Console\\Application' => __DIR__ . '/..' . '/symfony/console/Application.php',
         'Symfony\\Component\\Console\\CommandLoader\\CommandLoaderInterface' => __DIR__ . '/..' . '/symfony/console/CommandLoader/CommandLoaderInterface.php',
         'Symfony\\Component\\Console\\CommandLoader\\ContainerCommandLoader' => __DIR__ . '/..' . '/symfony/console/CommandLoader/ContainerCommandLoader.php',

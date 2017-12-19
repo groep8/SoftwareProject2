@@ -6,8 +6,10 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'App\\Answer' => $baseDir . '/app/Answer.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
+    'App\\Http\\Controllers\\AnswerController' => $baseDir . '/app/Http/Controllers/AnswerController.php',
     'App\\Http\\Controllers\\AuthController' => $baseDir . '/app/Http/Controllers/AuthController.php',
     'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => $baseDir . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
     'App\\Http\\Controllers\\Auth\\LoginController' => $baseDir . '/app/Http/Controllers/Auth/LoginController.php',
@@ -1443,6 +1445,7 @@ return array(
     'Illuminate\\Support\\NamespacedItemResolver' => $vendorDir . '/laravel/framework/src/Illuminate/Support/NamespacedItemResolver.php',
     'Illuminate\\Support\\Optional' => $vendorDir . '/laravel/framework/src/Illuminate/Support/Optional.php',
     'Illuminate\\Support\\Pluralizer' => $vendorDir . '/laravel/framework/src/Illuminate/Support/Pluralizer.php',
+    'Illuminate\\Support\\ProcessUtils' => $vendorDir . '/laravel/framework/src/Illuminate/Support/ProcessUtils.php',
     'Illuminate\\Support\\ServiceProvider' => $vendorDir . '/laravel/framework/src/Illuminate/Support/ServiceProvider.php',
     'Illuminate\\Support\\Str' => $vendorDir . '/laravel/framework/src/Illuminate/Support/Str.php',
     'Illuminate\\Support\\Testing\\Fakes\\BusFake' => $vendorDir . '/laravel/framework/src/Illuminate/Support/Testing/Fakes/BusFake.php',
@@ -2747,6 +2750,9 @@ return array(
     'SebastianBergmann\\ResourceOperations\\ResourceOperations' => $vendorDir . '/sebastian/resource-operations/src/ResourceOperations.php',
     'SebastianBergmann\\Version' => $vendorDir . '/sebastian/version/src/Version.php',
     'SessionUpdateTimestampHandlerInterface' => $vendorDir . '/symfony/polyfill-php70/Resources/stubs/SessionUpdateTimestampHandlerInterface.php',
+    'Skydiver\\LaravelMaterializeCSS\\MaterializeCSS' => $vendorDir . '/skydiver/laravel-materialize-css/src/MaterializeCSS.php',
+    'Skydiver\\LaravelMaterializeCSS\\MaterializeCSSBuilder' => $vendorDir . '/skydiver/laravel-materialize-css/src/MaterializeCSSBuilder.php',
+    'Skydiver\\LaravelMaterializeCSS\\MaterializeCSSServiceProvider' => $vendorDir . '/skydiver/laravel-materialize-css/src/MaterializeCSSServiceProvider.php',
     'Symfony\\Component\\Console\\Application' => $vendorDir . '/symfony/console/Application.php',
     'Symfony\\Component\\Console\\CommandLoader\\CommandLoaderInterface' => $vendorDir . '/symfony/console/CommandLoader/CommandLoaderInterface.php',
     'Symfony\\Component\\Console\\CommandLoader\\ContainerCommandLoader' => $vendorDir . '/symfony/console/CommandLoader/ContainerCommandLoader.php',

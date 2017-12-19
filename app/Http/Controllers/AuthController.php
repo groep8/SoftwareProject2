@@ -78,7 +78,7 @@ class AuthController extends MainController
                 }
                 elseif ($user->inRole('hr')) {
                     
-                    return Redirect::route("hr.index")->with('success', Lang::get('auth/message.signin.success'));
+                    return Redirect::route("hr.survey")->with('success', Lang::get('auth/message.signin.success'));
                     
                 }
                 else {

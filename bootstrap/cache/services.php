@@ -24,15 +24,16 @@
     20 => 'Illuminate\\Validation\\ValidationServiceProvider',
     21 => 'Illuminate\\View\\ViewServiceProvider',
     22 => 'Fideloper\\Proxy\\TrustedProxyServiceProvider',
-    23 => 'Laravel\\Tinker\\TinkerServiceProvider',
-    24 => 'Cartalyst\\Sentinel\\Laravel\\SentinelServiceProvider',
-    25 => 'Collective\\Html\\HtmlServiceProvider',
+    23 => 'Cartalyst\\Sentinel\\Laravel\\SentinelServiceProvider',
+    24 => 'Collective\\Html\\HtmlServiceProvider',
+    25 => 'Laravel\\Tinker\\TinkerServiceProvider',
     26 => 'Cartalyst\\Sentinel\\Laravel\\SentinelServiceProvider',
     27 => 'Collective\\Html\\HtmlServiceProvider',
-    28 => 'App\\Providers\\AppServiceProvider',
-    29 => 'App\\Providers\\AuthServiceProvider',
-    30 => 'App\\Providers\\EventServiceProvider',
-    31 => 'App\\Providers\\RouteServiceProvider',
+    28 => 'Skydiver\\LaravelMaterializeCSS\\MaterializeCSSServiceProvider',
+    29 => 'App\\Providers\\AppServiceProvider',
+    30 => 'App\\Providers\\AuthServiceProvider',
+    31 => 'App\\Providers\\EventServiceProvider',
+    32 => 'App\\Providers\\RouteServiceProvider',
   ),
   'eager' => 
   array (
@@ -152,11 +153,12 @@
     'translation.loader' => 'Illuminate\\Translation\\TranslationServiceProvider',
     'validator' => 'Illuminate\\Validation\\ValidationServiceProvider',
     'validation.presence' => 'Illuminate\\Validation\\ValidationServiceProvider',
-    'command.tinker' => 'Laravel\\Tinker\\TinkerServiceProvider',
     'html' => 'Collective\\Html\\HtmlServiceProvider',
     'form' => 'Collective\\Html\\HtmlServiceProvider',
     'Collective\\Html\\HtmlBuilder' => 'Collective\\Html\\HtmlServiceProvider',
     'Collective\\Html\\FormBuilder' => 'Collective\\Html\\HtmlServiceProvider',
+    'command.tinker' => 'Laravel\\Tinker\\TinkerServiceProvider',
+    'materialize-css' => 'Skydiver\\LaravelMaterializeCSS\\MaterializeCSSServiceProvider',
   ),
   'when' => 
   array (
@@ -196,10 +198,13 @@
     'Illuminate\\Validation\\ValidationServiceProvider' => 
     array (
     ),
+    'Collective\\Html\\HtmlServiceProvider' => 
+    array (
+    ),
     'Laravel\\Tinker\\TinkerServiceProvider' => 
     array (
     ),
-    'Collective\\Html\\HtmlServiceProvider' => 
+    'Skydiver\\LaravelMaterializeCSS\\MaterializeCSSServiceProvider' => 
     array (
     ),
   ),

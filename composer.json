@@ -16,7 +16,9 @@
         "filp/whoops": "~2.0",
         "fzaninotto/faker": "~1.4",
         "mockery/mockery": "~1.0",
-        "phpunit/phpunit": "~6.0"
+        "phpunit/phpunit": "~6.0",
+        "skydiver/laravel-materialize-css": "dev-master"
+        
     },
     "autoload": {
         "classmap": [
