@@ -64,40 +64,43 @@
    <center>
       <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
+            <Label text="Training">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="240.0" />
+               </VBox.margin></Label>
             <TableView fx:id="tableView" prefHeight="292.0" prefWidth="600.0">
               <columns>
                 <TableColumn fx:id="trainingId" prefWidth="75.0" text="Trainingid" />
                   <TableColumn fx:id="trainingNaam" prefWidth="75.0" text="TrainingNaam" />
                   <TableColumn fx:id="adres" prefWidth="75.0" text="Adres" />
                   <TableColumn fx:id="leerkracht" prefWidth="75.0" text="Leerkracht" />
-                  <TableColumn fx:id="personeel" prefWidth="75.0" text="Personeel" />
-                  <TableColumn fx:id="datum" prefWidth="75.0" text="datum" />
+                  <TableColumn fx:id="begindatum" prefWidth="75.0" text="Begindatum" />
+                  <TableColumn fx:id="eindDatum" prefWidth="75.0" text="Einddatum" />
               </columns>
                <columnResizePolicy>
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                </columnResizePolicy>
-            </TableView>
-            <Label text="Select Training for more options">
-               <font>
-                  <Font size="18.0" />
-               </font>
                <VBox.margin>
-                  <Insets left="10.0" />
-               </VBox.margin></Label>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </TableView>
             <Button mnemonicParsing="false" onAction="#addStage" prefHeight="40.0" prefWidth="140.0" style="-fx-background-radius: 20; -fx-background-color: #808080;" text="Add Training" textFill="#fcfcfc">
                <font>
                   <Font name="Arial" size="14.0" />
                </font>
                <VBox.margin>
-                  <Insets left="5.0" top="20.0" />
+                  <Insets left="65.0" top="20.0" />
                </VBox.margin>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="140.0" style="-fx-background-radius: 20; -fx-background-color: #808080;" text="More info" textFill="#fcfcfc">
+            <Button mnemonicParsing="false" onAction="#goBook" prefHeight="40.0" prefWidth="140.0" style="-fx-background-radius: 20; -fx-background-color: #808080;" text="Book " textFill="#fcfcfc">
                <font>
                   <Font name="Arial" size="14.0" />
                </font>
                <VBox.margin>
-                  <Insets bottom="20.0" left="160.0" top="-40.0" />
+                  <Insets bottom="20.0" left="220.0" top="-40.0" />
                </VBox.margin>
             </Button>
             <Button mnemonicParsing="false" onAction="#UpdateTraining" prefHeight="40.0" prefWidth="140.0" style="-fx-background-radius: 20; -fx-background-color: #808080;" text="Modify training" textFill="#fcfcfc">
@@ -105,23 +108,55 @@
                   <Font name="Arial" size="14.0" />
                </font>
                <VBox.margin>
-                  <Insets left="5.0" />
+                  <Insets left="65.0" />
                </VBox.margin>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="140.0" style="-fx-background-radius: 20; -fx-background-color: #808080;" text="Delete training" textFill="#fcfcfc">
+            <Button mnemonicParsing="false" onAction="#DeleteTraining" prefHeight="40.0" prefWidth="140.0" style="-fx-background-radius: 20; -fx-background-color: #808080;" text="Delete" textFill="#fcfcfc">
                <font>
                   <Font name="Arial" size="14.0" />
                </font>
                <VBox.margin>
-                  <Insets left="160.0" top="-40.0" />
+                  <Insets left="220.0" top="-40.0" />
                </VBox.margin>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="140.0" style="-fx-background-radius: 20; -fx-background-color: #808080;" text="Delete training" textFill="#fcfcfc">
+            <Button mnemonicParsing="false" onAction="#goGoogleMap" prefHeight="40.0" prefWidth="140.0" style="-fx-background-radius: 20; -fx-background-color: #808080;" text="Google Maps" textFill="#fcfcfc">
                <font>
                   <Font name="Arial" size="14.0" />
                </font>
                <VBox.margin>
-                  <Insets left="80.0" top="20.0" />
+                  <Insets left="65.0" top="20.0" />
+               </VBox.margin>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#goLeerkracht" prefHeight="40.0" prefWidth="140.0" style="-fx-background-radius: 20; -fx-background-color: #808080;" text="Trainer ..." textFill="#fcfcfc">
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="20.0" left="380.0" top="-160.0" />
+               </VBox.margin>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#goAdres" prefHeight="40.0" prefWidth="140.0" style="-fx-background-radius: 20; -fx-background-color: #808080;" text="Adres ..." textFill="#fcfcfc">
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="380.0" />
+               </VBox.margin>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#goDelete" prefHeight="40.0" prefWidth="140.0" style="-fx-background-radius: 20; -fx-background-color: #808080;" text="Show Delete" textFill="#fcfcfc">
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="220.0" top="20.0" />
+               </VBox.margin>
+            </Button>
+            <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="140.0" style="-fx-background-radius: 20; -fx-background-color: #808080;" text="show Employee" textFill="#fcfcfc">
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="380.0" top="-40.0" />
                </VBox.margin>
             </Button>
          </children>

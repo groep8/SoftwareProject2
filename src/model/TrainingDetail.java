@@ -42,7 +42,7 @@ public class TrainingDetail implements java.io.Serializable {
 		this.idTrainingDetail = idTrainingDetail;
 	}
 
-	@Column(name = "idPersoneel", nullable = false)
+	@Column(name = "idEmployee", nullable = false)
 	public int getPersoneel() {
 		return this.personeel;
 	}

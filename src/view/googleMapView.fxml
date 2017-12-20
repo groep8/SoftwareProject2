@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.GoogleMapsController">
+   <children>
+      <ImageView fx:id="image" fitHeight="546.0" fitWidth="600.0" layoutY="54.0" pickOnBounds="true" preserveRatio="true" />
+      <Label fx:id="l" layoutX="33.0" layoutY="3.0" prefHeight="51.0" prefWidth="463.0" text="Label">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

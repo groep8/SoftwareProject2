@@ -40,13 +40,15 @@ private Main main;
 	
 	@FXML
 	private void bar() throws IOException {
-		
+		main.BarchartView();
 	}
+
 	
 	@FXML
-	private void xy() throws IOException {
-		
+	private void line() throws IOException {
+		main.LinechartView();
 	}
+	
 	
 	@FXML
 	private void goHome() throws IOException {

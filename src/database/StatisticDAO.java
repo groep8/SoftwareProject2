@@ -1,51 +1,25 @@
 package database;
 
-import java.io.IOException;
-import java.sql.SQLException;
-import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.List;
 
+import org.hibernate.Query;
 import org.hibernate.Session;
 
-import javafx.scene.control.TableColumn.CellDataFeatures;
-import javafx.scene.layout.BorderPane;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
-import database.TrainingDAO;
-import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.value.ObservableValue;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.util.Callback;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.TextField;
-import javafx.scene.control.Alert.AlertType;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
 import model.*;
 
 public class StatisticDAO {
 	
-	public static ArrayList<Chartdata> getData(String arg, String archiveString, String table){
+	public static List getPieData(String arg, String archiveString, String tabel){
 		Session session = Main.factory.getCurrentSession();
-		
-		String az = "SELECT " + arg + ", COUNT(" + arg + ") FROM " + table + " group by 1";
-		
-		ArrayList<Chartdata> cdata = null;
+		List test = null;
 		
 		try {
 			session.beginTransaction();
 			
-			cdata = (ArrayList<Chartdata>)session.createNativeQuery(az, Chartdata.class).getResultList();
-			
-
+			Query q = session.createNativeQuery("SELECT "+arg+", count("+ arg+") FROM "+ tabel +" where archief <= "+archiveString +" group by " + arg);
+			test = q.getResultList();
+			 
 			session.getTransaction().commit();
 			
 		}
@@ -54,13 +28,55 @@ public class StatisticDAO {
 				
 		}
 		
-		return cdata;
+		return test;
+		
+	}
+	
+	public static List getLineData(String arg, String archiveString, String tabel, String ja){
+		Session session = Main.factory.getCurrentSession();
+		List test = null;
+		
+		try {
+			session.beginTransaction();
+			
+			Query q = session.createNativeQuery("SELECT "+arg+", count("+ arg+") FROM "+ tabel +" where "
+					+ "archief <= "+archiveString +" and year(beginDatum) = " + ja + " group by " + arg );
+			test = q.getResultList();
+			 
+			session.getTransaction().commit();
+			
+		}
+			catch(Exception e) {
+				e.printStackTrace();
+				
+		}
+		
+		return test;
+		
+	}
+	
+	public static List getBarData(String arg, String archiveString, String tabel, String ja){
+		Session session = Main.factory.getCurrentSession();
+		List test = null;
+		
+		try {
+			session.beginTransaction();
+			
+			Query q = session.createNativeQuery("SELECT "+arg+", count("+ arg+") FROM "+ tabel +" where "
+					+ "archief <= "+archiveString +" and year(beginDatum) = " + ja + " group by " + arg );
+			test = q.getResultList();
+			 
+			session.getTransaction().commit();
+			
+		}
+			catch(Exception e) {
+				e.printStackTrace();
+				
+		}
+		
+		return test;
 		
 	}
 	
 	
-	public StatisticDAO() {
-		// TODO Auto-generated constructor stub
-	}
-
 }
