@@ -1,5 +1,4 @@
-/controller/
-/database/
-/logic/
 /model/
 /view/
+/mysql.exe
+/mysqldump.exe

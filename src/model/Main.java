@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
+import controller.MainViewController;
 import database.LoginDAO;
 import database.TrainingDAO;
 import javafx.application.Application;
@@ -17,8 +18,10 @@ import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import view.LoginController;
 
 public class Main extends Application{
+	public static Login currentLogged;
 	private static Stage primaryStage;
 	public static Stage addDialogStage;
 	public static SessionFactory factory;
@@ -72,12 +75,12 @@ public class Main extends Application{
 		primaryStage.show();
 	}
 	public static void MainAdminView() throws IOException {
-		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(Main.class.getResource("/view/DBBackUpView.fxml"));
-		Parent root = loader.load();
-		Scene scene = new Scene(root);
-		primaryStage.setScene(scene);
-		primaryStage.show();
+			FXMLLoader loader = new FXMLLoader();
+			loader.setLocation(Main.class.getResource("/view/MainAdminView.fxml"));
+			Parent root = loader.load();
+			Scene scene = new Scene(root);
+			primaryStage.setScene(scene);
+			primaryStage.show();
 	}
 	
 	public static void OptionView() throws IOException {
@@ -100,6 +103,18 @@ public class Main extends Application{
 		addDialogStage.setScene(scene);
 		addDialogStage.showAndWait();
 	}
+	
+	public static void showBackupPosView() throws IOException {
+		BorderPane addNewtraining= FXMLLoader.load(Main.class.getResource("/view/DBBackUpView.fxml"));
+		addDialogStage= new Stage();
+		addDialogStage.setResizable(false);
+		addDialogStage.setTitle("Backup Options");
+		addDialogStage.initModality(Modality.WINDOW_MODAL);
+		addDialogStage.initOwner(primaryStage);
+		Scene scene= new Scene(addNewtraining);
+		addDialogStage.setScene(scene);
+		addDialogStage.showAndWait();
+	}
 	public static void showUpdateStageName() throws IOException {
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(Main.class.getResource("/view/UpdateName.fxml"));
@@ -108,7 +123,6 @@ public class Main extends Application{
 		primaryStage.setScene(scene);
 		primaryStage.show();
 	}
-	
 	
 	public static void main(String[] args) {
 		factory = new Configuration()

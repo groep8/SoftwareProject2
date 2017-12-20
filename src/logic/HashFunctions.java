@@ -20,7 +20,7 @@ public class HashFunctions {
 	public static void main(String[] args) {
 		String test = "This is a test";
 		System.out.println(getHash(test.getBytes()));
-		System.out.println(getHash("matheo".getBytes()));
+		System.out.println(getHash("test".getBytes()));
 		
 	}
 }

@@ -76,7 +76,10 @@ public class TrainingController {
 	public void addStage() throws IOException {
 		main.showAddStage();
 	}
-
+	@FXML
+	private void goAdmin() throws IOException {
+		main.MainAdminView();
+	}
 	
 
 	@FXML
@@ -137,11 +140,11 @@ public class TrainingController {
 	public void initialize() {
 
 		trainingId.setCellValueFactory(new Callback<CellDataFeatures<TrainingDetail, Integer>, ObservableValue<Integer>>() {
-		@Override
-		public ObservableValue<Integer> call(CellDataFeatures<TrainingDetail, Integer> data) {
+			@Override
+			public ObservableValue<Integer> call(CellDataFeatures<TrainingDetail, Integer> data) {
 			return new SimpleIntegerProperty(data.getValue().getTraining().getIdTraining()).asObject();
-		}
-	});
+			}
+		});
 		
 		trainingNaam.setCellValueFactory(new Callback<CellDataFeatures<TrainingDetail, String>, ObservableValue<String>>() {
 			@Override

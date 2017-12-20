@@ -12,7 +12,6 @@
       <PasswordField fx:id="pf_password" layoutX="286.0" layoutY="341.0" prefHeight="26.0" prefWidth="233.0" promptText="Enter your password" />
       <TextField fx:id="tf_user" layoutX="286.0" layoutY="247.0" prefHeight="26.0" prefWidth="233.0" promptText="Enter your username" />
       <Label layoutX="286.0" layoutY="310.0" prefHeight="31.0" prefWidth="116.0" text="Password:" />
-      <Button layoutX="320.0" layoutY="397.0" mnemonicParsing="false" onAction="#goHome" prefHeight="40.0" prefWidth="160.0" style="-fx-background-radius: 20;" text="Log in" />
-      <Button layoutX="42.0" layoutY="38.0" mnemonicParsing="false" onAction="#goAdmin" text="Go to admin" />
+      <Button layoutX="320.0" layoutY="397.0" mnemonicParsing="false" onAction="#goHome" prefHeight="40.0" prefWidth="160.0" style="-fx-background-radius: 20; -fx-background-color: #808080;" text="Log in" textFill="WHITE" />
    </children>
 </AnchorPane>

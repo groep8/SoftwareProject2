@@ -31,4 +31,8 @@ private Main main;
 	private void goOptions() throws IOException {
 		main.OptionView();
 	}
+	@FXML
+	private void goAdmin() throws IOException {
+		main.MainAdminView();
+	}
 }

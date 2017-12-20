@@ -8,9 +8,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.DBBackUpView">
+<BorderPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.MainAdminController">
    <left>
       <FlowPane onDragDetected="#goHome" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #808080;" BorderPane.alignment="CENTER">
          <children>
@@ -58,7 +60,7 @@
                   <Font name="Arial" size="14.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" onAction="#goStatistic" prefHeight="40.0" prefWidth="160.0" style="-fx-background-radius: 20; -fx-background-color: white;" text="Admin">
+            <Button mnemonicParsing="false" onAction="#goAdmin" prefHeight="40.0" prefWidth="160.0" style="-fx-background-radius: 20; -fx-background-color: white;" text="Admin">
                <font>
                   <Font name="Arial" size="14.0" />
                </font>
@@ -71,15 +73,41 @@
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <TableView prefHeight="298.0" prefWidth="600.0" AnchorPane.topAnchor="0.0">
+            <TableView fx:id="tableView" prefHeight="298.0" prefWidth="600.0" AnchorPane.topAnchor="0.0">
               <columns>
-                <TableColumn prefWidth="75.0" text="ID" />
-                <TableColumn prefWidth="75.0" text="Employee" />
-                  <TableColumn prefWidth="75.0" text="Username" />
-                  <TableColumn prefWidth="75.0" text="Password" />
-                  <TableColumn prefWidth="75.0" text="isAdmin" />
+                <TableColumn fx:id="idLogin" editable="false" prefWidth="75.0" text="ID" />
+                <TableColumn fx:id="personeel" editable="false" prefWidth="102.0" text="Employee" />
+                  <TableColumn fx:id="username" editable="false" minWidth="0.0" prefWidth="100.0" text="Username" />
+                  <TableColumn fx:id="password" editable="false" minWidth="0.0" prefWidth="244.0" text="Password" />
+                  <TableColumn editable="false" minWidth="0.0" prefWidth="78.0" text="isAdmin" />
               </columns>
             </TableView>
+            <Button layoutX="388.0" layoutY="335.0" mnemonicParsing="false" onAction="#showBackupPosView" prefHeight="40.0" prefWidth="160.0" style="-fx-background-radius: 20; -fx-background-color: #808080;" text="Backups ...">
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop color="#fcfcfc" />
+                        <Stop color="WHITE" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+            </Button>
+            <Button layoutX="388.0" layoutY="409.0" mnemonicParsing="false" onAction="#goLogfiles" prefHeight="40.0" prefWidth="160.0" style="-fx-background-radius: 20; -fx-background-color: #808080;" text="Logfiles ...">
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop color="#fcfcfc" />
+                        <Stop color="WHITE" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+            </Button>
          </children>
       </AnchorPane>
    </center>

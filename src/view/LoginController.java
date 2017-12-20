@@ -1,7 +1,5 @@
 package view;
 
-import java.io.IOException;
-
 import database.LoginDAO;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -28,30 +26,30 @@ public class LoginController {
     		logCurrent.setPassword(pf_password.getText());
     		if(LoginDAO.getLogUser(logCurrent)) {
     			Main.mainView();
-    	    	this.alert("Success !", "Je bent succesvol ingelogd !", AlertType.INFORMATION);
+    			System.out.println(logCurrent.toString());
+    			Main.currentLogged = new Login(logCurrent);
+    	    	alert("Success !", "Je bent succesvol ingelogd !", AlertType.INFORMATION);
+    	    	
     		}
     		else {
-    	    	this.alert("Username", "Login onmogelijk. ", AlertType.WARNING);
+    	    	alert("Username", "Login onmogelijk. ", AlertType.WARNING);
     		}
 		}
     	catch(NullPointerException e) {
-    		this.alert("Error","Foutieve gebruikersnaam / paswoord.", AlertType.WARNING);
+    		alert("Error","Foutieve gebruikersnaam / paswoord.", AlertType.WARNING);
     		logCurrent.setUsername("");
     		logCurrent.setPassword("");	
     	}
     	catch (Exception e) {
-			e.printStackTrace();
+    		alert("FATAL ERROR", "Unknown error, please contact your system administrator and report the bug.", AlertType.WARNING);
 		}
     }
-    public void alert(String title,String message, AlertType al) {
+    public static void alert(String title,String message, AlertType al) {
     	Alert alert = new Alert(al);
+    	alert.setHeaderText(null);
     	alert.setTitle(title);
     	alert.setContentText(message);
     	alert.showAndWait();
     	
-    }
-    @FXML
-    void goAdmin(ActionEvent event) throws IOException{
-    	Main.MainAdminView();
     }
 }
