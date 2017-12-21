@@ -24,7 +24,7 @@ public class Main extends Application{
 	@Override
 	public void start(Stage primaryStage) throws IOException {
 		this.primaryStage=primaryStage;
-		this.primaryStage.setTitle("Groep 8 App");
+		this.primaryStage.setTitle("Groep 8 Application");
 		Parent root = FXMLLoader.load(getClass().getResource("/view/MainView.fxml"));
 		Scene scene = new Scene(root);
 		primaryStage.setScene(scene);
@@ -97,6 +97,82 @@ public class Main extends Application{
 		primaryStage.show();
 	}
 	
+	public static void BookView() throws IOException {
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(Main.class.getResource("/view/BookView.fxml"));
+		Parent root = loader.load();
+		Scene scene = new Scene(root);
+		primaryStage.setScene(scene);
+		primaryStage.show();
+	}
+	public static void DeleteView() throws IOException {
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(Main.class.getResource("/view/DeleteTrainingView.fxml"));
+		Parent root = loader.load();
+		Scene scene = new Scene(root);
+		primaryStage.setScene(scene);
+		primaryStage.show();
+	}
+	public static void LeerkrachtView() throws IOException {
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(Main.class.getResource("/view/LeerkrachtView.fxml"));
+		Parent root = loader.load();
+		Scene scene = new Scene(root);
+		primaryStage.setScene(scene);
+		primaryStage.show();
+	}
+	public static void AdresView() throws IOException {
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(Main.class.getResource("/view/AdresView.fxml"));
+		Parent root = loader.load();
+		Scene scene = new Scene(root);
+		primaryStage.setScene(scene);
+		primaryStage.show();
+	}
+	
+	public static void addLeerkrachtView() throws IOException {
+		
+		BorderPane addNewtraining= FXMLLoader.load(Main.class.getResource("/view/addnewLeerkrachtView.fxml"));
+		addDialogStage= new Stage();
+		addDialogStage.setResizable(false);
+		addDialogStage.setTitle("Add New Leerkracht");
+		addDialogStage.initModality(Modality.WINDOW_MODAL);
+		addDialogStage.initOwner(primaryStage);
+		Scene scene= new Scene(addNewtraining);
+		addDialogStage.setScene(scene);
+		addDialogStage.showAndWait();
+	}
+	public static void addAdresView() throws IOException {
+		
+		BorderPane addNewtraining= FXMLLoader.load(Main.class.getResource("/view/addnewAdresView.fxml"));
+		addDialogStage= new Stage();
+		addDialogStage.setResizable(false);
+		addDialogStage.setTitle("Add New Adres");
+		addDialogStage.initModality(Modality.WINDOW_MODAL);
+		addDialogStage.initOwner(primaryStage);
+		Scene scene= new Scene(addNewtraining);
+		addDialogStage.setScene(scene);
+		addDialogStage.showAndWait();
+	}
+	
+	public static void DeleteLeerkrachtView() throws IOException {
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(Main.class.getResource("/view/Leerkrachtdelete.fxml"));
+		Parent root = loader.load();
+		Scene scene = new Scene(root);
+		primaryStage.setScene(scene);
+		primaryStage.show();
+	}
+	public static void DeleteAdresView() throws IOException {
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(Main.class.getResource("/view/AdresDelete.fxml"));
+		Parent root = loader.load();
+		Scene scene = new Scene(root);
+		primaryStage.setScene(scene);
+		primaryStage.show();
+	}
+	
+	
 	public static void main(String[] args) {
 		factory = new Configuration()
 				.configure()
@@ -104,6 +180,8 @@ public class Main extends Application{
 				.addAnnotatedClass(TrainingDetail.class)
 				.addAnnotatedClass(Adres.class)
 				.addAnnotatedClass(Leerkracht.class)
+				.addAnnotatedClass(Personeel.class)
+				.addAnnotatedClass(Login.class)
 				.buildSessionFactory();
 		launch(args);
 		factory.close();
