@@ -28,7 +28,10 @@ public class Training implements Serializable {
 	private Adres adres;
 	private Leerkracht leerkracht;
 	private String trainingNaam;
-	private LocalDate datum;
+	private LocalDate beginDatum;
+	private LocalDate eindDatum;
+	private String book;
+	private String auteurBoek;
 	private String status;
 	private Boolean archief;
 	private Set<TrainingDetail> trainingDetails = new HashSet<TrainingDetail>(0);
@@ -89,20 +92,6 @@ public class Training implements Serializable {
 		this.trainingDetails = trainingDetails;
 	}
 
-
-
-	public LocalDate getDatum() {
-		return datum;
-	}
-
-
-
-	public void setDatum(LocalDate datum) {
-		this.datum = datum;
-	}
-
-
-
 	public String getStatus() {
 		return status;
 	}
@@ -125,4 +114,49 @@ public class Training implements Serializable {
 		this.archief = archief;
 	}
 
+	public LocalDate getBeginDatum() {
+		return beginDatum;
+	}
+
+
+
+	public void setBeginDatum(LocalDate beginDatum) {
+		this.beginDatum = beginDatum;
+	}
+
+
+
+	public LocalDate getEindDatum() {
+		return eindDatum;
+	}
+
+
+
+	public void setEindDatum(LocalDate eindDatum) {
+		this.eindDatum = eindDatum;
+	}
+
+
+
+	public String getBook() {
+		return book;
+	}
+
+
+
+	public void setBook(String book) {
+		this.book = book;
+	}
+
+
+
+	public String getAuteurBoek() {
+		return auteurBoek;
+	}
+
+
+
+	public void setAuteurBoek(String auteurBoek) {
+		this.auteurBoek = auteurBoek;
+	}
 }
