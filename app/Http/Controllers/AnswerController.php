@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Redirect;
+use Sentinel;
 
 
 class AnswerController extends Controller
@@ -26,7 +27,7 @@ class AnswerController extends Controller
      }
      $newAnswer->answer = $newValue;
      $newAnswer->question_id = $key;
-     $newAnswer->user_id = Auth::id();
+     $newAnswer->user_id = Sentinel::getUser()->id;
      $newAnswer->survey_id = $survey->id;
 
      $newAnswer->save();

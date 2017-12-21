@@ -79,7 +79,7 @@ class SurveyController extends Controller
   public function delete_survey(Survey $survey)
   {
     $survey->delete();
-    return redirect('');
+    return redirect()->route('hr.survey');
   }
  
 }

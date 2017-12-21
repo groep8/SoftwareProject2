@@ -17,7 +17,7 @@ Laravel
       <br/>
       <a href='view/{{$survey->id}}'>Take Survey</a> |
        <a href="{{$survey->id}}/edit">Edit Survey</a> | 
-       <a href="survey/answers/{{$survey->id}}">View Answers</a> 
+       <a href="answers/{{$survey->id}}">View Answers</a> 
       <a href="#doDelete" style="float:right;" class="modal-trigger red-text">Delete Survey</a>
       <!-- Modal Structure -->
       <!-- TODO Fix the Delete aspect -->
@@ -27,10 +27,10 @@ Laravel
             <div class="row">
               <h4>Are you sure?</h4>
               <p>Do you wish to delete this survey called "{{ $survey->title }}"?</p>
-              <div class="modal-footer">
-                <a href="survey/{{ $survey->id }}/delete" class=" modal-action waves-effect waves-light btn-flat red-text">Yep yep!</a>
-                <a class=" modal-action modal-close waves-effect waves-light green white-text btn">No, stop!</a>
-              </div>
+                <div class="modal-footer">
+                  <a href="{{ $survey->id }}/delete" class=" modal-action waves-effect waves-light btn-flat red-text">Yep yep!</a>
+                  <a class=" modal-action modal-close waves-effect waves-light green white-text btn">No, stop!</a>
+                </div>
             </div>
           </div>
         </div>
@@ -40,7 +40,7 @@ Laravel
       <ul class="collapsible" data-collapsible="expandable">
           @forelse ($survey->questions as $question)
           <li style="box-shadow:none;">
-            <div class="collapsible-header">{{ $question->title }} <a href="question/{{ $question->id }}/edit" style="float:right;">Edit</a></div>
+            <div class="collapsible-header">{{ $question->title }} <a href="/question/{{ $question->id }}/edit" style="float:right;">Edit</a></div>
             <div class="collapsible-body">
               <div style="margin:5px; padding:10px;">
                   {!! Form::open() !!}
@@ -77,11 +77,11 @@ Laravel
           @endforelse
       </ul>
       <h2 class="flow-text">Add Question</h2>
-      <form method="POST" action="/{{ $survey->id }}/questions" id="boolean">
+      <form method="POST" action="{{ $survey->id }}/questions" id="boolean">
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
         <div class="row">
           <div class="input-field col s12">
-            <select class="" name="question_type" id="question_type">
+            <select class="browser-default" name="question_type" id="question_type">
               <option value="" disabled selected>Choose your option</option>
               <option value="text">Text</option>
               <option value="textarea">Textarea</option>
@@ -102,5 +102,9 @@ Laravel
         </div>
         </form>
     </div>
+  
   </div>
+
 @stop
+
+

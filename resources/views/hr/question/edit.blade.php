@@ -1,4 +1,8 @@
-@extends('layout')
+@extends ('hr./layouts/default')
+@section('title')
+Laravel
+@parent
+@stop
 
 @section('content')
 <form method="POST" action="update">
