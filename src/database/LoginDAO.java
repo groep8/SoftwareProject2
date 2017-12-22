@@ -10,7 +10,7 @@ import model.Login;
 import model.Main;
 import logic.HashFunctions;
 
-public class LoginDAO {
+public class LoginDAO {	
 	public static boolean saveLogin(String username, String password) {
 		
 		Session session = Main.factory.getCurrentSession();

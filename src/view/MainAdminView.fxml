@@ -82,20 +82,7 @@
                   <TableColumn fx:id="isAdmin" editable="false" minWidth="0.0" prefWidth="78.0" text="isAdmin" />
               </columns>
             </TableView>
-            <Button layoutX="388.0" layoutY="335.0" mnemonicParsing="false" onAction="#showBackupPosView" prefHeight="40.0" prefWidth="160.0" style="-fx-background-radius: 20; -fx-background-color: #808080;" text="Backups ...">
-               <font>
-                  <Font name="Arial" size="14.0" />
-               </font>
-               <textFill>
-                  <LinearGradient endX="1.0" endY="1.0">
-                     <stops>
-                        <Stop color="#fcfcfc" />
-                        <Stop color="WHITE" offset="1.0" />
-                     </stops>
-                  </LinearGradient>
-               </textFill>
-            </Button>
-            <Button layoutX="388.0" layoutY="409.0" mnemonicParsing="false" onAction="#goLogfiles" prefHeight="40.0" prefWidth="160.0" style="-fx-background-radius: 20; -fx-background-color: #808080;" text="Logfiles ...">
+            <Button layoutX="65.0" layoutY="334.0" mnemonicParsing="false" onAction="#showBackupPosView" prefHeight="40.0" prefWidth="160.0" style="-fx-background-radius: 20; -fx-background-color: #808080;" text="Backups ...">
                <font>
                   <Font name="Arial" size="14.0" />
                </font>
