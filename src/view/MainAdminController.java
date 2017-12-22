@@ -31,13 +31,11 @@ public class MainAdminController {
 	 private TableColumn<Login,String> username;
 	 @FXML 
 	 private TableColumn<Login, String>  password;
-//	 @FXML 
-//	 private TableColumn <Login, Integer> isAdmin;
+	 @FXML
+	 private TableColumn<Login, String> isAdmin;
 	 
 	 @FXML
 	 public void initialize() {
-		 System.out.println(Main.currentLogged.toString());
-		if(Main.currentLogged.isAdmin()) {
 			 idLogin.setCellValueFactory(new Callback<CellDataFeatures<Login, Integer>, ObservableValue<Integer>>(){
 					@Override
 					public ObservableValue<Integer> call(CellDataFeatures<Login, Integer> data) {
@@ -62,19 +60,14 @@ public class MainAdminController {
 						return new SimpleStringProperty(data.getValue().getPassword());
 					}	 
 				 });
-//				 isAdmin.setCellValueFactory(new Callback<CellDataFeatures<Login,Integer>, ObservableValue<Integer>>(){
-//						@Override
-//						public ObservableValue<Integer> call(CellDataFeatures<Login, Integer> data) {
-//							return new SimpleIntegerProperty(data.getValue().isAdmin()).asObject();
-//						}	 
-//				 });
+				 isAdmin.setCellValueFactory(new Callback<CellDataFeatures<Login,String>, ObservableValue<String>>(){
+						@Override
+						public ObservableValue<String> call(CellDataFeatures<Login, String> data) {
+							return new SimpleStringProperty(data.getValue().stringAdmin());
+						}	 
+				 });
 				 ObservableList<Login> list = FXCollections.observableArrayList(LoginDAO.getAll());
 				 tableView.setItems(list);
-			 }
-		else {
-			LoginController.alert("ERROR: Can't load this information.", "You do not have sufficient privileges to load this information.", AlertType.ERROR);
-		}
-		
 		}
 
     @FXML
@@ -103,7 +96,12 @@ public class MainAdminController {
     }
     @FXML
 	private void goAdmin(ActionEvent event) throws IOException {
-		Main.MainAdminView();
+    	if(Main.currentLogged.isAdmin()) {
+			Main.MainAdminView();
+		}
+		else {
+			LoginController.alert("ERROR: Can't load this information.", "You do not have sufficient privileges to load this information.", AlertType.ERROR);
+		}
 	}
     @FXML
     void showBackupPosView(ActionEvent event) throws IOException {

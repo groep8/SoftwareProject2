@@ -51,11 +51,10 @@ public class LoginDAO {
 	public static boolean getLogUser(Login user) {
 		Session session = Main.factory.getCurrentSession();
 		user.setPassword(HashFunctions.getHash(user.getPassword().getBytes()));
-		Login log = null;
 			try {
 				session.beginTransaction();
-				log = (Login)session.createNativeQuery("select * from Login where username='" + user.getUsername() +"' and password='"+user.getPassword()+"'", Login.class).getSingleResult();
-				if(log.equals(user)) {
+				Main.currentLogged = (Login)session.createNativeQuery("select * from Login where username='" + user.getUsername() +"' and password='"+user.getPassword()+"'", Login.class).getSingleResult();
+				if(Main.currentLogged.equals(user)) {
 					session.getTransaction().commit();
 					return true;
 				}

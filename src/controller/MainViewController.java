@@ -4,7 +4,9 @@ import java.io.IOException;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert.AlertType;
 import model.Main;
+import view.LoginController;
 
 public class MainViewController {
 	
@@ -32,7 +34,12 @@ public class MainViewController {
 	}
 	@FXML
 	private void goAdmin(ActionEvent event) throws IOException {
-		Main.MainAdminView();
+		if(Main.currentLogged.isAdmin()) {
+			Main.MainAdminView();
+		}
+		else {
+			LoginController.alert("ERROR: Can't load this information.", "You do not have sufficient privileges to load this information.", AlertType.ERROR);
+		}
 	}
 
 }

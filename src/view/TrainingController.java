@@ -30,7 +30,6 @@ import model.Main;
 import model.Training;
 import model.TrainingDetail;
 public class TrainingController {
-	private Main main;
 	public static Stage secundaireStage;
 	private UpdateTraining upt;
 	@FXML
@@ -57,28 +56,33 @@ public class TrainingController {
 	
 	@FXML
 	private void goTraining() throws IOException {
-		main.TrainingView();
+		Main.TrainingView();
 	}
 	@FXML
 	private void goEmployees() throws IOException {
-		main.EmployeesView();
+		Main.EmployeesView();
 	}
 	@FXML
 	private void goStatistic() throws IOException {
-		main.StatisticView();
+		Main.StatisticView();
 	}
 	@FXML
 	private void goOptions() throws IOException {
-		main.OptionView();
+		Main.OptionView();
 	}
 	
 	@FXML
 	public void addStage() throws IOException {
-		main.showAddStage();
+		Main.showAddStage();
 	}
 	@FXML
 	private void goAdmin() throws IOException {
-		main.MainAdminView();
+		if(Main.currentLogged.isAdmin()) {
+			Main.MainAdminView();
+		}
+		else {
+			LoginController.alert("ERROR: Can't load this information.", "You do not have sufficient privileges to load this information.", AlertType.ERROR);
+		}
 	}
 	
 

@@ -27,15 +27,6 @@ public class Login implements java.io.Serializable {
 	private String username;
 	private String password;
 	private boolean isAdmin;
-	
-	
-
-	@Override
-	public String toString() {
-		return "Login [idLogin=" + idLogin + ", personeel=" + personeel + ", username=" + username + ", password="
-				+ password + ", isAdmin=" + isAdmin + "]";
-	}
-
 
 	public Login() {
 	}
@@ -85,7 +76,7 @@ public class Login implements java.io.Serializable {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	@Column(name = "isAdmin", nullable = false)
+	@Column(name = "admin", nullable = false)
 	public boolean isAdmin() {
 		return isAdmin;
 	}
@@ -115,5 +106,7 @@ public class Login implements java.io.Serializable {
 			return false;
 		return true;
 	}
-
+	public String stringAdmin() {
+		return (this.isAdmin ? "Admin" : "User");
+	}
 }

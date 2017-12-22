@@ -26,8 +26,6 @@ public class LoginController {
     		logCurrent.setPassword(pf_password.getText());
     		if(LoginDAO.getLogUser(logCurrent)) {
     			Main.mainView();
-    			System.out.println(logCurrent.toString());
-    			Main.currentLogged = new Login(logCurrent);
     	    	alert("Success !", "Je bent succesvol ingelogd !", AlertType.INFORMATION);
     	    	
     		}

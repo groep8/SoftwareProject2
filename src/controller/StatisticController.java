@@ -3,35 +3,41 @@ package controller;
 import java.io.IOException;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert.AlertType;
 import model.Main;
+import view.LoginController;
 
 public class StatisticController {
-private Main main;
 	
 	@FXML
 	private void goHome() throws IOException {
-		main.mainView();
+		Main.mainView();
 	}
 	
 	@FXML
 	private void goTraining() throws IOException {
-		main.TrainingView();
+		Main.TrainingView();
 	}
 	@FXML
 	private void goEmployees() throws IOException {
-		main.EmployeesView();
+		Main.EmployeesView();
 	}
 	@FXML
 	private void goStatistic() throws IOException {
-		main.StatisticView();
+		Main.StatisticView();
 	}
 	@FXML
 	private void goOptions() throws IOException {
-		main.OptionView();
+		Main.OptionView();
 	}
 	@FXML
 	private void goAdmin() throws IOException {
-		main.MainAdminView();
+		if(Main.currentLogged.isAdmin()) {
+			Main.MainAdminView();
+		}
+		else {
+			LoginController.alert("ERROR: Can't load this information.", "You do not have sufficient privileges to load this information.", AlertType.ERROR);
+		}
 	}
 
 }
