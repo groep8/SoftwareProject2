@@ -173,7 +173,7 @@ public class TrainingController {
 		datum.setCellValueFactory(new Callback<CellDataFeatures<TrainingDetail, String>, ObservableValue<String>>() {
 			@Override
 			public ObservableValue<String> call(CellDataFeatures<TrainingDetail, String> data) {
-				return new SimpleStringProperty(data.getValue().getTraining().getDatum().toString());
+				return new SimpleStringProperty(data.getValue().getTraining().getBegindatum().toString());
 			}
 		});
 				

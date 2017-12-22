@@ -10,7 +10,6 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
-import model.Adres;
 import model.Main;
 import model.Training;
 import model.TrainingDetail;
@@ -46,7 +45,7 @@ public class addNewTrainingController {
 		
 		Training training = new Training();
 		training.setTrainingNaam(naam);
-		training.setDatum(datum);
+		training.setBegindatum(datum);;
 		training.setStatus("WAITING");
 		training.setArchief(false);
 

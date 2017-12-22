@@ -28,9 +28,10 @@ public class Training implements Serializable {
 	private Adres adres;
 	private Leerkracht leerkracht;
 	private String trainingNaam;
-	private LocalDate datum;
+	private LocalDate begindatum;
 	private String status;
-	private Boolean archief;
+	@Column(name="archief",columnDefinition = "NUMBER(0,1) default 0",nullable = false) 
+	private Boolean archief = false;
 	private Set<TrainingDetail> trainingDetails = new HashSet<TrainingDetail>(0);
 
 	public Training() {
@@ -91,16 +92,6 @@ public class Training implements Serializable {
 
 
 
-	public LocalDate getDatum() {
-		return datum;
-	}
-
-
-
-	public void setDatum(LocalDate datum) {
-		this.datum = datum;
-	}
-
 
 
 	public String getStatus() {
@@ -123,6 +114,25 @@ public class Training implements Serializable {
 
 	public void setArchief(Boolean archief) {
 		this.archief = archief;
+	}
+
+
+
+	public LocalDate getBegindatum() {
+		return begindatum;
+	}
+
+
+
+	public void setBegindatum(LocalDate begindatum) {
+		this.begindatum = begindatum;
+	}
+
+
+
+	public void setPersoneel(int personeel) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

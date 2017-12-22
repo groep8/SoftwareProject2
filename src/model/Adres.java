@@ -38,14 +38,13 @@ public class Adres implements java.io.Serializable {
 		this.land = land;
 	}
 
-	public Adres(String straat, int huisnum, int postcode, String stad, String land, Set<Leerkracht> leerkrachts,
+	public Adres(String straat, int huisnum, int postcode, String stad, String land,
 			Set<Training> trainings) {
 		this.straat = straat;
 		this.huisnum = huisnum;
 		this.postcode = postcode;
 		this.stad = stad;
 		this.land = land;
-		this.leerkrachts = leerkrachts;
 		this.trainings = trainings;
 	}
 
@@ -105,14 +104,6 @@ public class Adres implements java.io.Serializable {
 		this.land = land;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "adres")
-	public Set<Leerkracht> getLeerkrachts() {
-		return this.leerkrachts;
-	}
-
-	public void setLeerkrachts(Set<Leerkracht> leerkrachts) {
-		this.leerkrachts = leerkrachts;
-	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "adres")
 	public Set<Training> getTrainings() {

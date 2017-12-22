@@ -40,9 +40,11 @@ public class TrainingDAO  {
 			session.save(td);
 
 			session.getTransaction().commit();	
+			session.close();
 		}
 		catch(Exception e) {
 			e.printStackTrace();
+			session.close();
 			
 		return false;
 			}
@@ -58,14 +60,60 @@ public class TrainingDAO  {
 		try {
 		session.beginTransaction();
 		
-		tds = (ArrayList<TrainingDetail>)session.createNativeQuery("SELECT td.* FROM Training t, TrainingDetail td WHERE t.idTraining = td.idTraining AND archief=0", TrainingDetail.class).getResultList();
+		tds = (ArrayList<TrainingDetail>)session.createNativeQuery("SELECT td.* FROM Training t, TrainingDetail td WHERE t.idTraining = td.idTraining", TrainingDetail.class).getResultList();
 		
 
 		session.getTransaction().commit();
+		session.close();
 		
 	}
 		catch(Exception e) {
 			e.printStackTrace();
+			session.close();
+	}
+		return tds;
+	}
+	
+	
+	public static ArrayList<Training> getallt() {
+		Session session = Main.factory.getCurrentSession();
+		
+		ArrayList<Training> tds = null;
+		
+		try {
+		session.beginTransaction();
+		
+		tds = (ArrayList<Training>)session.createNativeQuery("SELECT td.* FROM Training t, TrainingDetail td WHERE t.idTraining = td.idTraining", Training.class).getResultList();
+		
+
+		session.getTransaction().commit();
+		session.close();
+	}
+		catch(Exception e) {
+			e.printStackTrace();
+			session.close();
+	}
+		return tds;
+	}
+	
+	
+	public static ArrayList<Training> getall2() {
+		Session session = Main.factory.getCurrentSession();
+		
+		ArrayList<Training> tds = null;
+		
+		try {
+		session.beginTransaction();
+		
+		tds = (ArrayList<Training>)session.createNativeQuery("SELECT * from Training", Training.class).getResultList();
+		
+
+		session.getTransaction().commit();
+		session.close();
+	}
+		catch(Exception e) {
+			e.printStackTrace();
+			session.close();
 			
 	}
 		return tds;
@@ -82,10 +130,12 @@ public class TrainingDAO  {
 
 
         session.getTransaction().commit();
+        session.close();
         
 		}
 		catch(Exception e) {
 			e.printStackTrace();
+			session.close();
 		}
 
 

@@ -23,7 +23,6 @@ import javax.persistence.Transient;
 public class Leerkracht implements java.io.Serializable {
 
 	private Integer idLeerkracht;
-	private Adres adres;
 	private String voornaam;
 	private String familienaam;
 	private Set<Training> trainings = new HashSet<Training>(0);
@@ -31,14 +30,13 @@ public class Leerkracht implements java.io.Serializable {
 	public Leerkracht() {
 	}
 
-	public Leerkracht(Adres adres, String voornaam, String familienaam) {
-		this.adres = adres;
+	public Leerkracht(String voornaam, String familienaam) {
 		this.voornaam = voornaam;
 		this.familienaam = familienaam;
 	}
 
-	public Leerkracht(Adres adres, String voornaam, String familienaam, Set<Training> trainings) {
-		this.adres = adres;
+	public Leerkracht(String voornaam, String familienaam, Set<Training> trainings) {
+	
 		this.voornaam = voornaam;
 		this.familienaam = familienaam;
 		this.trainings = trainings;
@@ -56,15 +54,9 @@ public class Leerkracht implements java.io.Serializable {
 		this.idLeerkracht = idLeerkracht;
 	}
 
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "idAdres", nullable = false)
-	public Adres getAdres() {
-		return this.adres;
-	}
 
-	public void setAdres(Adres adres) {
-		this.adres = adres;
-	}
+
+
 
 	@Column(name = "voornaam", nullable = false, length = 30)
 	public String getVoornaam() {

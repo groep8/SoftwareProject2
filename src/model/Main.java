@@ -12,6 +12,8 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -53,6 +55,11 @@ public class Main extends Application{
 	}
 	
 	public static void EmployeesView() throws IOException {
+		Alert alert = new Alert(AlertType.INFORMATION);
+		alert.setTitle("Loading");
+		alert.setContentText("Loading");
+		alert.setHeaderText(null);
+		alert.showAndWait();
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(Main.class.getResource("/view/EmployeesView.fxml"));
 		Parent root = loader.load();
@@ -88,6 +95,8 @@ public class Main extends Application{
 		addDialogStage.setScene(scene);
 		addDialogStage.showAndWait();
 	}
+	
+	
 	public static void showUpdateStageName() throws IOException {
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(Main.class.getResource("/view/UpdateName.fxml"));
