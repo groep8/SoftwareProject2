@@ -53,11 +53,11 @@ public class DBBackUpController {
     }
     @FXML
     void createDump(ActionEvent event) {
-    	Process p = null;
+    	Process p;
     	try {
     		Runtime runtime = Runtime.getRuntime();
     		//A way to run mysqldump on the remote data on the phpmyadmin
-    		p = runtime.exec("C:\\Users\\mdexe\\SoftwareProject2\\lib\\mysqldump.exe -P 3306 -u SP2Team08 -h 172.20.0.27 -paqwzsxedc123 SP2Team08 --result-file " + path);
+    		p = runtime.exec("C:\\Users\\mdexe\\SoftwareProject2\\lib\\mysqldump.exe -P 3306 -u SP2Team08 -h 172.20.0.27 -paqwzsxedc123 SP2Team08 --add-drop-database --quick --result-file " + path);
     		
     		int processComplete = p.waitFor();
     		System.out.println(processComplete);
@@ -80,13 +80,16 @@ public class DBBackUpController {
 
     @FXML
     void LoadSql(ActionEvent event) {
-    	Process p = null;
+    	String user = "SP2Team08";
+    	String pass = "aqwzsxedc123";
+    	Process p;
     	try {
     		if(pathSql != null) {
-    			String[] cmd = {"C:\\Users\\mdexe\\SoftwareProject2\\lib\\mysql.exe", "-P 3306", "-u SP2Team08", "-h 172.20.0.27", "-paqwzsxedc123", "SP2Team08","-e", " source " + pathSql};
+    			//String[] cmd = new String[] {"C:/Users/mdexe/SoftwareProject2/lib//mysql.exe"," --host 172.20.0.27"," --user=SP2Team08"," --password=aqwzsxedc123"," -D SP2Team08"," --execute=\"source "+pathSql+"\""};
     			Runtime rt = Runtime.getRuntime();
-        		p = rt.exec(cmd);
+        		p = rt.exec("C:/Users/mdexe/SoftwareProject2/lib/mysql.exe --host 172.20.0.27 --user=SP2Team08 --password=aqwzsxedc123 -D SP2Team08 --execute=\"source "+ pathSql +"\"");
         		int processComplete = p.waitFor();
+        		System.out.println(processComplete);
         		if(processComplete == 0) {
         			LoginController.alert("INFO: Backup loaded", "The backup has been loaded back into the database.", AlertType.INFORMATION);
         		}
@@ -100,6 +103,7 @@ public class DBBackUpController {
     	}
     	catch(IOException e) {
     		//exception moet nog worden aangepast, programma catched nog niet alle exceptions
+    		e.printStackTrace();
     	}
     	catch(Exception e) {
     		LoginController.alert("FATAL ERROR", "Unknown error, please contact your system administrator and report the bug.", AlertType.WARNING);

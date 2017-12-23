@@ -26,10 +26,10 @@ public class StatisticController {
 	private void goStatistic() throws IOException {
 		Main.StatisticView();
 	}
-	@FXML
-	private void goOptions() throws IOException {
-		Main.OptionView();
-	}
+//	@FXML
+//	private void goOptions() throws IOException {
+//		Main.OptionView();
+//	}
 	@FXML
 	private void goAdmin() throws IOException {
 		if(Main.currentLogged.isAdmin()) {

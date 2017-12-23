@@ -40,6 +40,7 @@ public class LoginController {
     	}
     	catch (Exception e) {
     		alert("FATAL ERROR", "Unknown error, please contact your system administrator and report the bug.", AlertType.WARNING);
+    		e.printStackTrace();
 		}
     }
     public static void alert(String title,String message, AlertType al) {

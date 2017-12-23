@@ -80,10 +80,10 @@ public class MainAdminController {
     	Main.mainView();
     }
 
-    @FXML
-    private void goOptions(ActionEvent event) throws IOException{
-    	Main.OptionView();
-    }
+//    @FXML
+//    private void goOptions(ActionEvent event) throws IOException{
+//    	Main.OptionView();
+//    }
 
     @FXML
     private void goStatistic(ActionEvent event) throws IOException{
