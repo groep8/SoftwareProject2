@@ -25,7 +25,9 @@ public class TrainingDetail implements java.io.Serializable {
 	private Integer idTrainingDetail;
 	private int personeel;
 	private Training training;
-
+	@Column(name="archief",columnDefinition = "BIT DEFAULT 1",nullable = false) 
+	//@org.hibernate.annotations.Type(type = "yes_no")
+	private Boolean archief = false;
 	public TrainingDetail() {
 	}
 
@@ -41,6 +43,7 @@ public class TrainingDetail implements java.io.Serializable {
 	public void setIdTrainingDetail(Integer idTrainingDetail) {
 		this.idTrainingDetail = idTrainingDetail;
 	}
+
 	@Column(name = "idEmployee", nullable = false)
 	public int getPersoneel() {
 		return this.personeel;
@@ -58,6 +61,17 @@ public class TrainingDetail implements java.io.Serializable {
 
 	public void setTraining(Training training) {
 		this.training = training;
+	}
+
+	@Column(name="archief",columnDefinition = "BIT DEFAULT 1",nullable = false)
+	//@org.hibernate.annotations.Type(type = "yes_no")
+	public Boolean getArchief() {
+		return archief;
+	}
+
+
+	public void setArchief(Boolean archief) {
+		this.archief = archief;
 	}
 
 

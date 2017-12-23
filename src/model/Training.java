@@ -33,7 +33,8 @@ public class Training implements Serializable {
 	private String book;
 	private String auteurBoek;
 	private String status;
-	private Boolean archief;
+	@Column(name="archief",columnDefinition = "NUMBER(0,1) default 0",nullable = false) 
+	private Boolean archief = false;
 	private Set<TrainingDetail> trainingDetails = new HashSet<TrainingDetail>(0);
 
 	public Training() {
@@ -97,7 +98,6 @@ public class Training implements Serializable {
 	}
 
 
-
 	public void setStatus(String status) {
 		this.status = status;
 	}
@@ -107,7 +107,6 @@ public class Training implements Serializable {
 	public Boolean getArchief() {
 		return archief;
 	}
-
 
 
 	public void setArchief(Boolean archief) {
@@ -137,7 +136,6 @@ public class Training implements Serializable {
 	}
 
 
-
 	public String getBook() {
 		return book;
 	}
@@ -148,8 +146,6 @@ public class Training implements Serializable {
 		this.book = book;
 	}
 
-
-
 	public String getAuteurBoek() {
 		return auteurBoek;
 	}
@@ -159,4 +155,5 @@ public class Training implements Serializable {
 	public void setAuteurBoek(String auteurBoek) {
 		this.auteurBoek = auteurBoek;
 	}
+
 }

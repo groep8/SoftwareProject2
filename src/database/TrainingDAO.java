@@ -41,6 +41,7 @@ public class TrainingDAO  {
 
 			session.getTransaction().commit();	
 			session.close();
+
 			return true;
 		}
 		catch(Exception e) {
@@ -60,7 +61,7 @@ public class TrainingDAO  {
 		try {
 		session.beginTransaction();
 		tds = (ArrayList<Training>)session.createNativeQuery("SELECT * FROM Training where archief=0", Training.class).getResultList();
-		
+
 
 		session.getTransaction().commit();
 		session.close();
@@ -69,6 +70,51 @@ public class TrainingDAO  {
 		catch(Exception e) {
 			session.close();
 			e.printStackTrace();
+			session.close();
+	}
+		return tds;
+	}
+	
+	
+	public static ArrayList<Training> getallt() {
+		Session session = Main.factory.getCurrentSession();
+		
+		ArrayList<Training> tds = null;
+		
+		try {
+		session.beginTransaction();
+		
+		tds = (ArrayList<Training>)session.createNativeQuery("SELECT td.* FROM Training t, TrainingDetail td WHERE t.idTraining = td.idTraining", Training.class).getResultList();
+		
+
+		session.getTransaction().commit();
+		session.close();
+	}
+		catch(Exception e) {
+			e.printStackTrace();
+			session.close();
+	}
+		return tds;
+	}
+	
+	
+	public static ArrayList<Training> getall2() {
+		Session session = Main.factory.getCurrentSession();
+		
+		ArrayList<Training> tds = null;
+		
+		try {
+		session.beginTransaction();
+		
+		tds = (ArrayList<Training>)session.createNativeQuery("SELECT * from Training", Training.class).getResultList();
+		
+
+		session.getTransaction().commit();
+		session.close();
+	}
+		catch(Exception e) {
+			e.printStackTrace();
+			session.close();
 			
 	}
 		return tds;
@@ -91,6 +137,7 @@ public class TrainingDAO  {
 		catch(Exception e) {
 			session.close();
 			e.printStackTrace();
+			session.close();
 		}
 
 

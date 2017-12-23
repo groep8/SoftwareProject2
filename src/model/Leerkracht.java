@@ -35,6 +35,7 @@ public class Leerkracht implements java.io.Serializable {
 		this.voornaam = voornaam;
 		this.familienaam = familienaam;
 	}
+
 	public Leerkracht(String voornaam, String familienaam, Set<Training> trainings) {
 		this.voornaam = voornaam;
 		this.familienaam = familienaam;
