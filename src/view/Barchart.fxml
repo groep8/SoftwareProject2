@@ -40,7 +40,7 @@
                      <children>
                         <VBox prefHeight="431.0" prefWidth="400.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
-                              <Label text="LineChart argumenten">
+                              <Label text="BarChart argumenten">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
@@ -58,14 +58,14 @@
                                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                 </rowConstraints>
                                  <children>
-                                    <Label text="argument" />
-                                    <Label text="tabel" GridPane.rowIndex="1" />
+                                    <Label text="tabel" />
+                                    <Label text="argument" GridPane.rowIndex="1" />
                                     <Label text="gearchiveerd" GridPane.rowIndex="2" />
                                     <Label text="jaar" GridPane.rowIndex="3" />
-                                    <TextField fx:id="argu" style="-fx-background-radius: 10;" GridPane.columnIndex="1" />
-                                    <TextField fx:id="table" style="-fx-background-radius: 10;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                    <TextField fx:id="gearchiveerd" style="-fx-background-radius: 10;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                                    <TextField fx:id="jaar" style="-fx-background-radius: 10;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                    <ComboBox fx:id="table" style="-fx-background-radius: 10;" GridPane.columnIndex="1" />
+                                    <ComboBox fx:id="argu" style="-fx-background-radius: 10;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    <ComboBox fx:id="gearchiveerd" style="-fx-background-radius: 10;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                    <ComboBox fx:id="jaar" style="-fx-background-radius: 10;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                                  </children>
                               </GridPane>
                            </children>

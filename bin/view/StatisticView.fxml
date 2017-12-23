@@ -70,19 +70,35 @@
    <center>
       <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
-            <Label alignment="CENTER" prefHeight="27.0" prefWidth="323.0" text="+a includes all archived things">
+            <Label alignment="CENTER" prefHeight="27.0" prefWidth="323.0" text="Statistieken">
                <font>
                   <Font size="18.0" />
                </font>
                <VBox.margin>
                   <Insets left="10.0" />
                </VBox.margin></Label>
+            <Button mnemonicParsing="false" onAction="#preset" prefHeight="40.0" prefWidth="180.0" style="-fx-background-color: #808080; -fx-background-radius: 20;" text="trainingen/maand" textFill="#fcfcfc">
+               <VBox.margin>
+                  <Insets right="200.0" top="80.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#preset2" prefHeight="40.0" prefWidth="180.0" style="-fx-background-color: #808080; -fx-background-radius: 20;" text="deelnemers/maand" textFill="#fcfcfc">
+               <VBox.margin>
+                  <Insets left="200.0" top="-40.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+            </Button>
             <Button mnemonicParsing="false" onAction="#bar" prefHeight="40.0" prefWidth="180.0" style="-fx-background-radius: 20; -fx-background-color: #808080;" text="Bar chart" textFill="#fcfcfc">
                <font>
                   <Font name="Arial" size="14.0" />
                </font>
                <VBox.margin>
-                  <Insets bottom="20.0" left="5.0" top="200.0" />
+                  <Insets bottom="20.0" left="5.0" top="100.0" />
                </VBox.margin>
             </Button>
            
@@ -96,7 +112,7 @@
             </Button>
             <Button mnemonicParsing="false" onAction="#line" prefHeight="40.0" prefWidth="180.0" style="-fx-background-radius: 20; -fx-background-color: #808080;" text="Line chart" textFill="#fcfcfc">
                <VBox.margin>
-                  <Insets bottom="20.0" />
+                  <Insets bottom="20.0" left="5.0" />
                </VBox.margin>
                <font>
                   <Font name="Arial" size="14.0" />

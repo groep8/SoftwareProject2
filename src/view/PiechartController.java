@@ -12,27 +12,52 @@ import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.chart.PieChart;
 import javafx.scene.chart.PieChart.Data;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import model.Main;
 
 public class PiechartController {
-	@FXML
-	private TextField argu;
 	
 	@FXML
-	private TextField table;
-	
+	private ComboBox<String> argu;
+
 	@FXML
-	private TextField gearchiveerd;
-	
-	
+	private ComboBox<String> table;
+
+
+	@FXML
+	private ComboBox<String> gearchiveerd;
+
+	@FXML
+	private void initialize() {
+		gearchiveerd.getItems().setAll("nee", "ja", "alles");
+		table.getItems().setAll("Adres","Employee","Leerkracht","Training","TrainingDetail");
+		table.setOnAction((e) ->{
+			if (!(table.getSelectionModel().getSelectedItem().equals("Employee"))) {
+			ObservableList<String> adreslist = FXCollections.observableArrayList(StatisticDAO.getTable(table.getSelectionModel().getSelectedItem()));
+			argu.setItems(adreslist);
+			}else {
+				argu.getItems().setAll("EmployeeID","LastName","FirstName","Title","TitleOfCourtesy","BirthDate","HireDate");
+			}
+			});
+			
+	}
+
 	public void generatePie() throws SQLException, IOException {
 		
-		String arg = argu.getText();
-		String tabel = table.getText();
-		String a = gearchiveerd.getText();
-		
+		String arg = argu.getSelectionModel().getSelectedItem();
+		String tabel = table.getSelectionModel().getSelectedItem();
+		String a = gearchiveerd.getSelectionModel().getSelectedItem();
+		if (a.equals("nee")){
+			a = "!=";
+		}
+		else if (a.equals("ja")) {
+			a = "=";
+		}
+		else {
+			a = "<=";
+		}
 		Main.Piechart(arg,a, tabel);
 		
 	}

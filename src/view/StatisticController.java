@@ -34,6 +34,17 @@ public class StatisticController {
 private Main main;
 
 	@FXML
+	private void preset() throws IOException {
+		main.Linechart("month(beginDatum)", "<=", "Training", "(select max(year(beginDatum)) from Training)", "Alles" );
+	}
+
+	@FXML
+	private void preset2() throws IOException {
+		main.Barchart("month(beginDatum)", "<=", "TrainingDetail", "(select max(year(beginDatum)) from Training)","Alles" );
+	}
+
+	
+	@FXML
 	private void pie() throws IOException {
 		main.PiechartView();
 	}

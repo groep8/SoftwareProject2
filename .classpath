@@ -23,5 +23,37 @@
 	<classpathentry kind="lib" path="lib/httpcore-4.0.1.jar"/>
 	<classpathentry kind="lib" path="lib/jackson-core-2.1.3.jar"/>
 	<classpathentry kind="lib" path="lib/jsr305-1.3.9.jar"/>
+	<classpathentry kind="lib" path="C:/Users/mao uyen/Documents/swaissa/libodatajersey/aopalliance-repackaged-2.5.0-b42.jar"/>
+	<classpathentry kind="lib" path="C:/Users/mao uyen/Documents/swaissa/libodatajersey/cdi-api-1.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/mao uyen/Documents/swaissa/libodatajersey/el-api-2.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/mao uyen/Documents/swaissa/libodatajersey/hk2-api-2.5.0-b42.jar"/>
+	<classpathentry kind="lib" path="C:/Users/mao uyen/Documents/swaissa/libodatajersey/hk2-locator-2.5.0-b42.jar"/>
+	<classpathentry kind="lib" path="C:/Users/mao uyen/Documents/swaissa/libodatajersey/hk2-utils-2.5.0-b42.jar"/>
+	<classpathentry kind="lib" path="C:/Users/mao uyen/Documents/swaissa/libodatajersey/javassist-3.22.0-CR2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/mao uyen/Documents/swaissa/libodatajersey/javax.annotation-api-1.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/mao uyen/Documents/swaissa/libodatajersey/javax.inject-1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/mao uyen/Documents/swaissa/libodatajersey/javax.inject-2.5.0-b42.jar"/>
+	<classpathentry kind="lib" path="C:/Users/mao uyen/Documents/swaissa/libodatajersey/javax.json.bind-api-1.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/mao uyen/Documents/swaissa/libodatajersey/javax.json-1.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/mao uyen/Documents/swaissa/libodatajersey/javax.json-api-1.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/mao uyen/Documents/swaissa/libodatajersey/javax.servlet-api-3.0.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/mao uyen/Documents/swaissa/libodatajersey/javax.ws.rs-api-2.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/mao uyen/Documents/swaissa/libodatajersey/jaxb-api-2.2.7.jar"/>
+	<classpathentry kind="lib" path="C:/Users/mao uyen/Documents/swaissa/libodatajersey/jboss-interceptors-api_1.1_spec-1.0.0.Beta1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/mao uyen/Documents/swaissa/libodatajersey/jersey-client.jar"/>
+	<classpathentry kind="lib" path="C:/Users/mao uyen/Documents/swaissa/libodatajersey/jersey-common.jar"/>
+	<classpathentry kind="lib" path="C:/Users/mao uyen/Documents/swaissa/libodatajersey/jersey-container-servlet.jar"/>
+	<classpathentry kind="lib" path="C:/Users/mao uyen/Documents/swaissa/libodatajersey/jersey-container-servlet-core.jar"/>
+	<classpathentry kind="lib" path="C:/Users/mao uyen/Documents/swaissa/libodatajersey/jersey-hk2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/mao uyen/Documents/swaissa/libodatajersey/jersey-media-jaxb.jar"/>
+	<classpathentry kind="lib" path="C:/Users/mao uyen/Documents/swaissa/libodatajersey/jersey-media-json-binding.jar"/>
+	<classpathentry kind="lib" path="C:/Users/mao uyen/Documents/swaissa/libodatajersey/jersey-media-sse.jar"/>
+	<classpathentry kind="lib" path="C:/Users/mao uyen/Documents/swaissa/libodatajersey/jersey-server.jar"/>
+	<classpathentry kind="lib" path="C:/Users/mao uyen/Documents/swaissa/libodatajersey/jsr250-api-1.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/mao uyen/Documents/swaissa/libodatajersey/org.osgi.core-4.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/mao uyen/Documents/swaissa/libodatajersey/osgi-resource-locator-1.0.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/mao uyen/Documents/swaissa/libodatajersey/persistence-api-1.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/mao uyen/Documents/swaissa/libodatajersey/validation-api-1.1.0.Final.jar"/>
+	<classpathentry kind="lib" path="C:/Users/mao uyen/Documents/swaissa/libodatajersey/yasson-1.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
