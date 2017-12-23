@@ -57,7 +57,7 @@ public class StatisticDAO {
 				}
 				az += " group by 1";
 			} else if(tabel.equals("TrainingDetail")){
-				az = ("SELECT "+arg+", count("+ arg+") FROM Training tr join TrainingDetail td on tr.idTraining" 
+				az = ("SELECT td."+arg+", count(td."+ arg+") FROM Training tr join TrainingDetail td on tr.idTraining" 
 						+ " = td.idTraining where tr.archief "+archiveString +" 1");
 				if (ja.equals("Alles")) {
 				} else {
@@ -65,7 +65,7 @@ public class StatisticDAO {
 				}
 				az += " group by 1";
 			}else if(tabel.equals("Adres")){
-				az = ("SELECT "+arg+", count("+ arg+") FROM Training tr join Adres a on tr.idAdres"
+				az = ("SELECT a."+arg+", count(a."+ arg+") FROM Training tr join Adres a on tr.idAdres"
 						+ " = a.idAdres where tr.archief "+archiveString +" 1");
 				if (ja.equals("Alles")) {
 				} else {
@@ -73,7 +73,7 @@ public class StatisticDAO {
 				}
 				az += " group by 1";
 			}else if(tabel.equals("Leerkracht")){
-				az = ("SELECT "+arg+", count("+ arg+") FROM Training tr join Leerkracht l on tr.idLeerkracht"
+				az = ("SELECT l."+arg+", count(l."+ arg+") FROM Training tr join Leerkracht l on tr.idLeerkracht"
 						+ " = l.idLeerkracht where " + "tr.archief "+archiveString +" 1");
 				if (ja.equals("Alles")) {
 				} else {
@@ -112,7 +112,7 @@ public class StatisticDAO {
 				}
 				az += " group by 1";
 			} else if(tabel.equals("TrainingDetail")){
-				az = ("SELECT "+arg+", count("+ arg+") FROM Training tr join TrainingDetail d on tr.idTraining " 
+				az = ("SELECT d."+arg+", count(d."+ arg+") FROM Training tr join TrainingDetail d on tr.idTraining " 
 						+ " = d.idTraining where tr.archief "+archiveString +" 1");
 				if (ja.equals("Alles")) {
 				} else {
@@ -120,7 +120,7 @@ public class StatisticDAO {
 				}
 				az += " group by 1";
 			}else if(tabel.equals("Adres")){
-				az = ("SELECT "+arg+", count("+ arg+") FROM Training tr join Adres a on tr.idAdres"
+				az = ("SELECT a."+arg+", count(a."+ arg+") FROM Training tr join Adres a on tr.idAdres"
 						+ " = a.idAdres where tr.archief "+archiveString +" 1");
 				if (ja.equals("Alles")) {
 				} else {
@@ -128,7 +128,7 @@ public class StatisticDAO {
 				}
 				az += " group by 1";
 			}else if(tabel.equals("Leerkracht")){
-				az = ("SELECT "+arg+", count("+ arg+") FROM Training tr join Leerkracht l on tr.idLeerkracht"
+				az = ("SELECT l."+arg+", count(l."+ arg+") FROM Training tr join Leerkracht l on tr.idLeerkracht"
 						+ " = l.idLeerkracht where tr.archief "+archiveString +" 1");
 				if (ja.equals("Alles")) {
 				} else {

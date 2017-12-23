@@ -176,7 +176,7 @@ public class Main extends Application{
 		} else {
 			Alert alert = new Alert(AlertType.INFORMATION);
 			alert.setTitle("Confirmation");
-			alert.setContentText("Error, er is geen data die correspondeert aand wat u heeft geselecteerd");
+			alert.setContentText("Error, er is geen data die correspondeert aan wat u heeft geselecteerd");
 			alert.setHeaderText(null);
 			alert.showAndWait();
 		}
