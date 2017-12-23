@@ -29,6 +29,7 @@ public class Login implements java.io.Serializable {
 	private boolean isAdmin;
 
 	public Login() {
+		super();
 	}
 	public Login(Login l) {
 		this.idLogin = l.getIdLogin();

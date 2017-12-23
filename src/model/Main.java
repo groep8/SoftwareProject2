@@ -123,6 +123,14 @@ public class Main extends Application{
 		primaryStage.setScene(scene);
 		primaryStage.show();
 	}
+	public static void goAddUser() throws IOException {
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(Main.class.getResource("/view/addNewUser.fxmli"));
+		Parent root = loader.load();
+		Scene scene = new Scene(root);
+		primaryStage.setScene(scene);
+		primaryStage.show();
+	}
 	
 	public static void main(String[] args) {
 		factory = new Configuration()

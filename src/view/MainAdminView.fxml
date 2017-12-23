@@ -95,6 +95,19 @@
                   </LinearGradient>
                </textFill>
             </Button>
+            <Button layoutX="65.0" layoutY="408.0" mnemonicParsing="false" onAction="#addUser" prefHeight="40.0" prefWidth="160.0" style="-fx-background-radius: 20; -fx-background-color: #808080;" text="Add user">
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop color="#fcfcfc" />
+                        <Stop color="WHITE" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+            </Button>
          </children>
       </AnchorPane>
    </center>
