@@ -204,4 +204,43 @@ public class StatisticDAO {
 		return result;
 
 	}
+
+	public static List getpresData(String arg, String a, String tabel, String ja) {
+		Session session = Main.factory.getCurrentSession();
+		List test = null;
+
+		try {
+			session.beginTransaction();
+			String az = null;
+			if (tabel.equals("Training")) {
+				az = ("SELECT "+arg+", count("+ arg+") FROM "+ tabel +" where "
+						+ "archief "+a +" 1");
+				if (ja.equals("Alles")) {
+				} else {
+					az += " and year(beginDatum) = " + ja;
+				}
+				az += " group by 1";
+			} else if(tabel.equals("TrainingDetail")){
+				az = ("SELECT "+arg+", count("+ arg+") FROM Training tr join TrainingDetail d on tr.idTraining " 
+						+ " = d.idTraining where tr.archief "+a+" 1");
+				if (ja.equals("Alles")) {
+				} else {
+					az += " and year(beginDatum) = " + ja;
+				}
+				az += " group by 1";
+			}
+
+			Query q = session.createNativeQuery(az);
+			test = q.getResultList();
+
+			session.getTransaction().commit();
+
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+
+		}
+
+		return test;
+	}
 }

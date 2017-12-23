@@ -40,7 +40,7 @@ private Main main;
 
 	@FXML
 	private void preset2() throws IOException {
-		main.Barchart("month(beginDatum)", "<=", "TrainingDetail", "(select max(year(beginDatum)) from Training)","Alles" );
+		main.preset2("month(beginDatum)", "<=", "TrainingDetail", "(select max(year(beginDatum)) from Training)","Alles" );
 	}
 
 	

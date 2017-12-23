@@ -134,6 +134,52 @@ public class Main extends Application{
 		addDialogStage.showAndWait();
 
 	}
+	
+	public static void preset2(String arg, String a, String tabel, String ja, String verg) throws IOException {
+		List <Object[]> geta = null;
+		geta = StatisticDAO.getpresData(arg, a,tabel, ja);
+		if (geta != null) {
+			final CategoryAxis xAxis = new CategoryAxis();
+			final NumberAxis yAxis = new NumberAxis();
+			xAxis.setLabel(arg);
+			final BarChart<String,Number> barChart = new BarChart<String,Number>(xAxis,yAxis);
+			XYChart.Series series1 = new XYChart.Series();
+			series1.setName(ja);
+			for(Object[] obj : geta){
+				String attnaam = String.valueOf(obj[0]);
+				String aantal = String.valueOf(obj[1]);
+				int foo = Integer.parseInt(aantal);
+				series1.getData().add(new XYChart.Data(attnaam, foo));
+			}	
+			Scene scene = new Scene(barChart);
+			barChart.getData().add(series1);
+			if (!(verg.equals("nee"))) {
+				XYChart.Series series2 = new XYChart.Series();
+				series2.setName(verg);
+				geta = StatisticDAO.getpresData(arg, a,tabel, verg);
+				for(Object[] obj : geta){
+					String attnaam = String.valueOf(obj[0]);
+					String aantal = String.valueOf(obj[1]);
+					int foo = Integer.parseInt(aantal);
+					series2.getData().add(new XYChart.Data(attnaam, foo));
+				}
+				barChart.getData().add(series2);
+			}
+			addDialogStage2= new Stage();
+			addDialogStage2.setResizable(false);
+			addDialogStage2.setTitle("Barchart");
+			addDialogStage2.initModality(Modality.WINDOW_MODAL);
+			addDialogStage2.initOwner(primaryStage);
+			addDialogStage2.setScene(scene);
+			addDialogStage2.showAndWait();
+		} else {
+			Alert alert = new Alert(AlertType.INFORMATION);
+			alert.setTitle("Confirmation");
+			alert.setContentText("Error, er is geen data die correspondeert aan wat u heeft geselecteerd");
+			alert.setHeaderText(null);
+			alert.showAndWait();
+		}
+	}
 
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public static void Barchart(String arg, String a, String tabel, String ja, String verg) throws IOException {
