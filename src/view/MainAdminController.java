@@ -107,14 +107,18 @@ public class MainAdminController {
     void showBackupPosView(ActionEvent event) throws IOException {
     	Main.showBackupPosView();
     }
+//    @FXML
+//    void modUser(ActionEvent event) throws IOException {
+//    	Login l = tableView.getSelectionModel().getSelectedItem();
+//    	if(l == null) {
+//    		LoginController.alert("ERROR: Nothing selected", "No user has been selected.", AlertType.ERROR);
+//    	}
+//    	else {
+//    		Main.goAddUser();
+//    	}
+//    }
     @FXML
     void addUser(ActionEvent event) throws IOException {
-    	Login l = tableView.getSelectionModel().getSelectedItem();
-    	if(l == null) {
-    		LoginController.alert("ERROR: Nothing selected", "No user has been selected.", AlertType.ERROR);
-    	}
-    	else {
-    		Main.goAddUser();
-    	}
+    	Main.goAddUser();
     }
 }

@@ -124,12 +124,15 @@ public class Main extends Application{
 		primaryStage.show();
 	}
 	public static void goAddUser() throws IOException {
-		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(Main.class.getResource("/view/addNewUser.fxmli"));
-		Parent root = loader.load();
-		Scene scene = new Scene(root);
-		primaryStage.setScene(scene);
-		primaryStage.show();
+		BorderPane addNewtraining= FXMLLoader.load(Main.class.getResource("/view/addNewUser.fxml"));
+		addDialogStage= new Stage();
+		addDialogStage.setResizable(false);
+		addDialogStage.setTitle("Add new user");
+		addDialogStage.initModality(Modality.WINDOW_MODAL);
+		addDialogStage.initOwner(primaryStage);
+		Scene scene= new Scene(addNewtraining);
+		addDialogStage.setScene(scene);
+		addDialogStage.showAndWait();
 	}
 	
 	public static void main(String[] args) {

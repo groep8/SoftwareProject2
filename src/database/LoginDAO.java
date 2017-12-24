@@ -11,16 +11,16 @@ import model.Main;
 import logic.HashFunctions;
 
 public class LoginDAO {	
-	public static boolean saveLogin(String username, String password) {
+	public static boolean saveLogin(Login l) {
 		
 		Session session = Main.factory.getCurrentSession();
 		try {
 			session.beginTransaction();
 			
 			Login temp = new Login();
-			temp.setUsername(username);
-			temp.setPassword(HashFunctions.getHash(password.getBytes()));
-			
+			temp.setUsername(l.getPassword());
+			temp.setPassword(HashFunctions.getHash(l.getPassword().getBytes()));
+			temp.setAdmin(l.isAdmin());
 			session.save(temp);
 			session.getTransaction().commit();
 			

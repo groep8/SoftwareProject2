@@ -1,5 +1,8 @@
 package view;
 
+import java.io.IOException;
+
+import database.LoginDAO;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.CheckBox;
@@ -37,18 +40,23 @@ public class addNewUserController {
     	try {
     		Login newLog = new Login();
     		newLog.setUsername(userName.getText());
-    		newLog.setAdmin(isAdmin.isSelected());
-    		if(passFirst.getText() != passSecond.getText()) {
+    		if(passSecond.getText().contentEquals(passFirst.getText())) {
     			InformationL.setText("!! The passwords must match to be accepted !!");
     		}
     		else {
     			newLog.setPassword(passSecond.getText());
+    			newLog.setAdmin(isAdmin.isSelected());
+        		LoginDAO.saveLogin(newLog);
+        		Main.addDialogStage.close();
+    			Main.MainAdminView();
     		}
     		
     	}
     	catch(NullPointerException e) {
     		LoginController.alert("ERROR: Not all fields where chosen", "Not all fields that need to be filled in were given.", AlertType.ERROR);
-    	}
+    	} catch (Exception e) {
+			e.printStackTrace();
+		}
     }
 
 }
