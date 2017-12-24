@@ -5,7 +5,6 @@ import java.io.IOException;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert.AlertType;
 import model.Main;
-import view.LoginController;
 
 public class EmployeesController {
 	

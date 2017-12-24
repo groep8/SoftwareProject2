@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
+import controller.LoginController;
 import controller.MainViewController;
 import database.LoginDAO;
 import database.TrainingDAO;
@@ -18,7 +19,6 @@ import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import view.LoginController;
 
 public class Main extends Application{
 	public static Login currentLogged;

@@ -1,4 +1,4 @@
-package view;
+package controller;
 
 import database.LoginDAO;
 import javafx.event.ActionEvent;

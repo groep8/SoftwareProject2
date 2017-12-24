@@ -1,9 +1,10 @@
-package view;
+package controller;
 
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
+import controller.LoginController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert.AlertType;
@@ -12,7 +13,6 @@ import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
 import model.Email;
 import model.Main;
-import view.LoginController;
 
 public class DBBackUpController {
 	private String path;
