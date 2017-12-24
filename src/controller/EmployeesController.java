@@ -22,7 +22,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.control.Alert.AlertType;
-
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -180,6 +180,19 @@ public class EmployeesController {
 		EmployeeUnboundController etc2 = f.getController();
 		s.showAndWait();
 		
+	}
+	public void goPdf() throws IOException {
+		FXMLLoader f = new FXMLLoader(Main.class.getResource("/view/viewCertificaat.fxml"));
+		AnchorPane updateTraining= f.load();
+		Stage s = new Stage();
+		second=s;
+		s.setResizable(false);
+		s.setTitle("PDF");
+		s.initModality(Modality.WINDOW_MODAL);
+		Scene scene= new Scene(updateTraining);
+		s.setScene(scene);
+		ControllerCertificaat etc2 = f.getController();
+		s.showAndWait();
 	}
 	
 	
