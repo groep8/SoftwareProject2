@@ -26,8 +26,6 @@ public class MainAdminController {
 	 @FXML 
 	 private TableColumn<Login, Integer> idLogin;
 	 @FXML
-	 private TableColumn<Login, Integer> personeel;
-	 @FXML
 	 private TableColumn<Login,String> username;
 	 @FXML 
 	 private TableColumn<Login, String>  password;
@@ -41,12 +39,6 @@ public class MainAdminController {
 					public ObservableValue<Integer> call(CellDataFeatures<Login, Integer> data) {
 						return new SimpleIntegerProperty(data.getValue().getIdLogin()).asObject();
 					}
-				 });
-				 personeel.setCellValueFactory(new Callback<CellDataFeatures<Login,Integer>, ObservableValue<Integer>>(){
-					@Override
-					public ObservableValue<Integer> call(CellDataFeatures<Login, Integer> data) {
-						return new SimpleIntegerProperty(data.getValue().getPersoneel().getIdPersoneel()).asObject();
-					}	 
 				 });
 				 username.setCellValueFactory(new Callback<CellDataFeatures<Login, String>, ObservableValue<String>>(){
 					@Override
@@ -66,7 +58,7 @@ public class MainAdminController {
 							return new SimpleStringProperty(data.getValue().stringAdmin());
 						}	 
 				 });
-				 ObservableList<Login> list = FXCollections.observableArrayList(LoginDAO.getAll());
+				 ObservableList<Login> list = FXCollections.observableArrayList(LoginDAO.getAllVis());
 				 tableView.setItems(list);
 		}
 
@@ -110,15 +102,37 @@ public class MainAdminController {
 //    @FXML
 //    void modUser(ActionEvent event) throws IOException {
 //    	Login l = tableView.getSelectionModel().getSelectedItem();
-//    	if(l == null) {
+//    	if(l == null) 
 //    		LoginController.alert("ERROR: Nothing selected", "No user has been selected.", AlertType.ERROR);
-//    	}
 //    	else {
 //    		Main.goAddUser();
 //    	}
 //    }
     @FXML
+    void delUser(ActionEvent event) throws IOException {
+    	Login l = tableView.getSelectionModel().getSelectedItem();
+    	if(l == null)
+    		LoginController.alert("ERROR: Nothing selected", "No user has been selected.", AlertType.ERROR);
+    	else {
+    		LoginDAO.delUser(l.getIdLogin());
+    		Main.MainAdminView();
+    	}
+    }
+    @FXML
     void addUser(ActionEvent event) throws IOException {
     	Main.goAddUser();
+    }
+    @FXML
+    void goDelUsers(ActionEvent event) throws IOException {
+    	Main.goDelUsers();
+    }
+    @FXML
+    void showModUser() throws IOException {
+    	ModUserController.selL = tableView.getSelectionModel().getSelectedItem();
+    	if(ModUserController.selL == null)
+    		LoginController.alert("ERROR: Nothing selected", "No user has been selected.", AlertType.ERROR);
+    	else {
+    		Main.showModUsers();
+    	}
     }
 }

@@ -134,6 +134,25 @@ public class Main extends Application{
 		addDialogStage.setScene(scene);
 		addDialogStage.showAndWait();
 	}
+	public static void goDelUsers() throws IOException {
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(Main.class.getResource("/view/MainAdminDelView.fxml"));
+		Parent root = loader.load();
+		Scene scene = new Scene(root);
+		primaryStage.setScene(scene);
+		primaryStage.show();
+	}
+	public static void showModUsers() throws IOException {
+		BorderPane addNewtraining= FXMLLoader.load(Main.class.getResource("/view/ModUserView.fxml"));
+		addDialogStage= new Stage();
+		addDialogStage.setResizable(false);
+		addDialogStage.setTitle("Add new user");
+		addDialogStage.initModality(Modality.WINDOW_MODAL);
+		addDialogStage.initOwner(primaryStage);
+		Scene scene= new Scene(addNewtraining);
+		addDialogStage.setScene(scene);
+		addDialogStage.showAndWait();
+	}
 	
 	public static void main(String[] args) {
 		factory = new Configuration()

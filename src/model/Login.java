@@ -23,17 +23,16 @@ import com.sun.istack.internal.NotNull;
 public class Login implements java.io.Serializable {
 	
 	private Integer idLogin;
-	private Personeel personeel;
 	private String username;
 	private String password;
 	private boolean isAdmin;
+	private boolean archief;
 
 	public Login() {
 		super();
 	}
 	public Login(Login l) {
 		this.idLogin = l.getIdLogin();
-		this.personeel = l.getPersoneel();
 		this.username = l.getUsername();
 		this.password = l.getPassword();
 		this.isAdmin = l.isAdmin();
@@ -48,16 +47,6 @@ public class Login implements java.io.Serializable {
 
 	public void setIdLogin(Integer idLogin) {
 		this.idLogin = idLogin;
-	}
-
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "idPersoneel", nullable = false)
-	public Personeel getPersoneel() {
-		return this.personeel;
-	}
-
-	public void setPersoneel(Personeel personeel) {
-		this.personeel = personeel;
 	}
 
 	@Column(name = "username", nullable = false, length = 10)
@@ -81,8 +70,14 @@ public class Login implements java.io.Serializable {
 	public boolean isAdmin() {
 		return isAdmin;
 	}
-
-
+	@Column(name = "archief", nullable = false)
+	public boolean getArchief() {
+		return this.archief;
+	}
+	public void setArchief(boolean archief) {
+		this.archief = archief;
+	}
+	
 	public void setAdmin(boolean isAdmin) {
 		this.isAdmin = isAdmin;
 	}
