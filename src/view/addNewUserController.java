@@ -15,17 +15,12 @@ import javafx.scene.control.Alert.AlertType;
 
 public class addNewUserController {
 
-	@FXML
-    private Label InformationL;
 	
     @FXML
-    private PasswordField passFirst;
+    private PasswordField pass;
 
     @FXML
     private TextField userName;
-
-    @FXML
-    private PasswordField passSecond;
 
     @FXML
     private CheckBox isAdmin;
@@ -40,19 +35,15 @@ public class addNewUserController {
     	try {
     		Login newLog = new Login();
     		newLog.setUsername(userName.getText());
-    		if(passSecond.getText().contentEquals(passFirst.getText())) {
-    			InformationL.setText("!! The passwords must match to be accepted !!");
-    		}
-    		else {
-    			newLog.setPassword(passSecond.getText());
-    			newLog.setAdmin(isAdmin.isSelected());
-        		LoginDAO.saveLogin(newLog);
-        		Main.addDialogStage.close();
-    			Main.MainAdminView();
-    		}
+   			newLog.setPassword(pass.getText());
+    		newLog.setAdmin((isAdmin.isSelected() ? true : false));
+       		LoginDAO.saveLogin(newLog);
+        	Main.addDialogStage.close();
+    		Main.MainAdminView();
     		
     	}
     	catch(NullPointerException e) {
+    		e.printStackTrace();
     		LoginController.alert("ERROR: Not all fields where chosen", "Not all fields that need to be filled in were given.", AlertType.ERROR);
     	} catch (Exception e) {
 			e.printStackTrace();
