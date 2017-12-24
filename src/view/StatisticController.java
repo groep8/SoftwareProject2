@@ -35,12 +35,12 @@ private Main main;
 
 	@FXML
 	private void preset() throws IOException {
-		main.Linechart("month(beginDatum)", "<=", "Training", "(select max(year(beginDatum)) from Training)", "Alles" );
+		main.Linechart("month(beginDatum)", "<=", "Training", "(select max(year(beginDatum)) from Training)", "(select max(year(beginDatum))-1 from Training)" );
 	}
 
 	@FXML
 	private void preset2() throws IOException {
-		main.preset2("month(beginDatum)", "<=", "TrainingDetail", "(select max(year(beginDatum)) from Training)","Alles" );
+		main.preset2("month(beginDatum)", "<=", "TrainingDetail", "(select max(year(beginDatum)) from Training)","(select max(year(beginDatum))-1 from Training)" );
 	}
 
 	
