@@ -23,6 +23,8 @@ public class TrainingDAO  {
 	public static boolean saveTraining(Training td, int adresId, int leerkrachtId) {
 
 		Session session = Main.factory.getCurrentSession();
+		
+		
 
 
 		try {

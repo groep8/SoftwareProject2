@@ -62,28 +62,36 @@ public class EmployeesController {
 	
 	 
 	 
-	 
 	@FXML
 	private void goHome() throws IOException {
-		main.mainView();
+		Main.mainView();
 	}
 	
 	@FXML
 	private void goTraining() throws IOException {
-		main.TrainingView();
+		Main.TrainingView();
 	}
 	@FXML
 	private void goEmployees() throws IOException {
-		main.EmployeesView();
+		Main.EmployeesView();
 	}
 	
 	@FXML
 	private void goStatistic() throws IOException {
-		main.StatisticView();
+		Main.StatisticView();
 	}
+//	@FXML
+//	private void goOptions() throws IOException {
+//		Main.OptionView();
+//	}
 	@FXML
-	private void goOptions() throws IOException {
-		main.OptionView();
+	private void goAdmin() throws IOException {
+		if(Main.currentLogged.isAdmin()) {
+			Main.MainAdminView();
+		}
+		else {
+			LoginController.alert("ERROR: Can't load this information.", "You do not have sufficient privileges to load this information.", AlertType.ERROR);
+		}
 	}
 
 	@FXML

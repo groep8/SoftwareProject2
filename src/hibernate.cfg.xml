@@ -21,9 +21,17 @@
         <!-- Echo the SQL to stdout -->
         <property name="show_sql">true</property>
 
-		<!-- Set the current session context -->
-		<property name="current_session_context_class">thread</property>
+	<!-- Set the current session context -->
+	<property name="current_session_context_class">thread</property>
  
+	<mapping class="model.Personeel"/>
+ 
+	<mapping class="model.Login"/>
+ 
+	<mapping class="model.TrainingDetail"/>
+	<mapping class="model.Training"/>
+	<mapping class="model.Adres"/>
+	<mapping class="model.Leerkracht"/>
     </session-factory>
 
 </hibernate-configuration>

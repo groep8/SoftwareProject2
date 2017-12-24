@@ -25,7 +25,6 @@ public class Personeel implements java.io.Serializable {
 	private String afdeling;
 	private String functie;
 	private boolean fire;
-	private Set<Login> logins = new HashSet<Login>(0);
 	private Set<TrainingDetail> trainingDetails = new HashSet<TrainingDetail>(0);
 
 	public Personeel() {
@@ -48,7 +47,6 @@ public class Personeel implements java.io.Serializable {
 		this.afdeling = afdeling;
 		this.functie = functie;
 		this.fire = fire;
-		this.logins = logins;
 		this.trainingDetails = trainingDetails;
 	}
 
@@ -116,15 +114,6 @@ public class Personeel implements java.io.Serializable {
 
 	public void setFire(boolean fire) {
 		this.fire = fire;
-	}
-
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "personeel")
-	public Set<Login> getLogins() {
-		return this.logins;
-	}
-
-	public void setLogins(Set<Login> logins) {
-		this.logins = logins;
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "personeel")
