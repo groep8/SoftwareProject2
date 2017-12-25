@@ -179,7 +179,7 @@ public static ArrayList<String> getAllFiles(){
 }
 
 		
-	public static void main(String[] args) throws Exception {
+	/*public static void main(String[] args) throws Exception {
 		//String file= new String("./Template.pdf");
 		//		uploadToServer(file);
 		String file=new String("test1.pdf");
@@ -187,7 +187,7 @@ public static ArrayList<String> getAllFiles(){
 		
 	//
 		    //getAllFilesFTP();
-	}
+	}*/
 	}
 	
 
