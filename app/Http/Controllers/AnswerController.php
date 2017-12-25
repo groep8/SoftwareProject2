@@ -18,6 +18,7 @@ class AnswerController extends Controller
  {
    // remove the token
    $arr = $request->except('_token');
+   //dd($arr);
    foreach ($arr as $key => $value) {
      $newAnswer = new Answer();
      if (! is_array( $value )) {

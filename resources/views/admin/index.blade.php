@@ -9,7 +9,7 @@ Laravel
         <div class="flex-center position-ref "> 
             <div class="content">
                 <div class="title m-b-md">
-                    Admin Home
+                    Welcome {{ Sentinel::getUser()->username}}
                 </div>
             </div>
         </div>
@@ -74,7 +74,7 @@ $( document ).ready(function() {
                 
                 $.ajax({
                     contentType: "application/json; charset=utf-8",
-                    url: "pending",
+                    url: "admin/pending",
                     dataType: "json"
                     }).done(function(response){
                         console.log(response);
@@ -176,7 +176,7 @@ $( document ).ready(function() {
                 
                 $.ajax({
                     contentType: "application/json; charset=utf-8",
-                    url: "confirmed",
+                    url: "admin/confirmed",
                     dataType: "json"
                     }).done(function(response){
                         console.log(response);
@@ -261,7 +261,7 @@ $( document ).ready(function() {
             console.log("id : "+id);
         $.ajax({
             type: 'POST',
-            url: 'confirm',
+            url: 'admin/confirm',
             data: provData
         }).done(function(data){
             console.log("Response ajax : "+data);
@@ -307,7 +307,7 @@ $( document ).ready(function() {
             console.log("id : "+id);
         $.ajax({
             type: 'POST',
-            url: 'undo',
+            url: 'admin/undo',
             data: provData
         }).done(function(data){
             console.log("Response ajax : "+data);

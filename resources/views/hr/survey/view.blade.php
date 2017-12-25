@@ -32,14 +32,14 @@ Laravel
                 @elseif($question->question_type === 'radio')
                   @foreach($question->option_name as $key=>$value)
                     <p style="margin:0px; padding:0px;">
-                      <input name="{{ $question->id }}[answer]" type="radio" id="{{ $key }}" />
+                      <input name="{{ $question->id }}[answer]" type="radio" id="{{ $key }}" value="{{ $value }}" />
                       <label for="{{ $key }}">{{ $value }}</label>
                     </p>
                   @endforeach
                 @elseif($question->question_type === 'checkbox')
                   @foreach($question->option_name as $key=>$value)
                   <p style="margin:0px; padding:0px;">
-                    <input type="checkbox" id="something{{ $key }}" name="{{ $question->id }}[answer]" />
+                    <input type="checkbox" id="something{{ $key }}" name="{{ $question->id }}[answer]" value="{{ $value }}"/>
                     <label for="something{{$key}}">{{ $value }}</label>
                   </p>
                   @endforeach
