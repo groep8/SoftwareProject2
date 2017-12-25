@@ -43,7 +43,6 @@ public class TrainingDAO  {
 
 			session.getTransaction().commit();	
 			session.close();
-
 			return true;
 		}
 		catch(Exception e) {
@@ -79,6 +78,7 @@ public class TrainingDAO  {
 	
 	
 	public static ArrayList<Training> getallt() {
+
 		Session session = Main.factory.getCurrentSession();
 		
 		ArrayList<Training> tds = null;
@@ -122,6 +122,48 @@ public class TrainingDAO  {
 		return tds;
 	}
 	
+	public static ArrayList<Leerkracht> getallLeerkracht() {
+		Session session = Main.factory.getCurrentSession();
+		
+		ArrayList<Leerkracht> tds = null;
+		
+		try {
+		session.beginTransaction();
+		
+		tds = (ArrayList<Leerkracht>)session.createNativeQuery("SELECT * FROM Leerkracht where archief=0", Leerkracht.class).getResultList();
+		
+
+		session.getTransaction().commit();
+		
+	}
+		catch(Exception e) {
+			e.printStackTrace();
+			
+	}
+		return tds;
+	}
+	
+	public static ArrayList<Leerkracht> getallLeerkrachtDelete() {
+		Session session = Main.factory.getCurrentSession();
+		
+		ArrayList<Leerkracht> tds = null;
+		
+		try {
+		session.beginTransaction();
+		
+		tds = (ArrayList<Leerkracht>)session.createNativeQuery("SELECT * FROM Leerkracht where archief=1", Leerkracht.class).getResultList();
+		
+
+		session.getTransaction().commit();
+		
+	}
+		catch(Exception e) {
+			e.printStackTrace();
+			
+	}
+		return tds;
+	}
+
 	public static void updateTrainingName(int id, String trainingNaam){
 		Session session = Main.factory.getCurrentSession();
 		try {
@@ -262,7 +304,6 @@ public class TrainingDAO  {
         session.beginTransaction();
         
         Training t=(Training) session.get(Training.class, id);
-       
         t.setBeginDatum(datum);
 
 
@@ -322,7 +363,6 @@ public class TrainingDAO  {
         session.beginTransaction();
         
         Training t=(Training) session.get(Training.class, id);
-       
         t.setArchief(true);
 
 
@@ -421,6 +461,7 @@ public class TrainingDAO  {
 		}
 		catch(Exception e) {
 			session.close();
+
 			e.printStackTrace();
 			return false;
 		

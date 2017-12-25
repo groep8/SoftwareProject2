@@ -26,7 +26,6 @@ public class Adres implements java.io.Serializable {
 	private String stad;
 	private String land;
 	private boolean archief;
-
 	private Set<Training> trainings = new HashSet<Training>(0);
 
 	public Adres() {

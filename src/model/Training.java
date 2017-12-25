@@ -97,7 +97,6 @@ public class Training implements Serializable {
 		return status;
 	}
 
-
 	public void setStatus(String status) {
 		this.status = status;
 	}
@@ -107,7 +106,6 @@ public class Training implements Serializable {
 	public Boolean getArchief() {
 		return archief;
 	}
-
 
 	public void setArchief(Boolean archief) {
 		this.archief = archief;
@@ -155,5 +153,56 @@ public class Training implements Serializable {
 	public void setAuteurBoek(String auteurBoek) {
 		this.auteurBoek = auteurBoek;
 	}
+
+
+
+	public LocalDate getBeginDatum() {
+		return beginDatum;
+	}
+
+
+
+	public void setBeginDatum(LocalDate beginDatum) {
+		this.beginDatum = beginDatum;
+	}
+
+
+
+	public LocalDate getEindDatum() {
+		return eindDatum;
+	}
+
+
+
+	public void setEindDatum(LocalDate eindDatum) {
+		this.eindDatum = eindDatum;
+	}
+
+
+
+	public String getBook() {
+		return book;
+	}
+
+
+
+	public void setBook(String book) {
+		this.book = book;
+	}
+
+
+
+	public String getAuteurBoek() {
+		return auteurBoek;
+	}
+
+
+
+	public void setAuteurBoek(String auteurBoek) {
+		this.auteurBoek = auteurBoek;
+	}
+
+
+
 
 }
