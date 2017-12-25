@@ -15138,3 +15138,92 @@ Did you mean one of these?
 #46 C:\\Server7\\htdocs\\soft2\\soft2\\public\\index.php(55): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #47 {main}
 "} 
+[2017-12-25 01:05:31] local.ERROR: The "--queued" option does not exist. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\RuntimeException(code: 0): The \"--queued\" option does not exist. at C:\\Server7\\htdocs\\soft2\\soft2\\vendor\\symfony\\console\\Input\\ArgvInput.php:222)
+[stacktrace]
+#0 C:\\Server7\\htdocs\\soft2\\soft2\\vendor\\symfony\\console\\Input\\ArgvInput.php(158): Symfony\\Component\\Console\\Input\\ArgvInput->addLongOption('queued', NULL)
+#1 C:\\Server7\\htdocs\\soft2\\soft2\\vendor\\symfony\\console\\Input\\ArgvInput.php(82): Symfony\\Component\\Console\\Input\\ArgvInput->parseLongOption('--queued')
+#2 C:\\Server7\\htdocs\\soft2\\soft2\\vendor\\symfony\\console\\Input\\Input.php(55): Symfony\\Component\\Console\\Input\\ArgvInput->parse()
+#3 C:\\Server7\\htdocs\\soft2\\soft2\\vendor\\symfony\\console\\Command\\Command.php(210): Symfony\\Component\\Console\\Input\\Input->bind(Object(Symfony\\Component\\Console\\Input\\InputDefinition))
+#4 C:\\Server7\\htdocs\\soft2\\soft2\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(170): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#5 C:\\Server7\\htdocs\\soft2\\soft2\\vendor\\symfony\\console\\Application.php(936): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#6 C:\\Server7\\htdocs\\soft2\\soft2\\vendor\\symfony\\console\\Application.php(240): Symfony\\Component\\Console\\Application->doRunCommand(Object(Illuminate\\Foundation\\Console\\JobMakeCommand), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#7 C:\\Server7\\htdocs\\soft2\\soft2\\vendor\\symfony\\console\\Application.php(148): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 C:\\Server7\\htdocs\\soft2\\soft2\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Application.php(88): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#9 C:\\Server7\\htdocs\\soft2\\soft2\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(121): Illuminate\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#10 C:\\Server7\\htdocs\\soft2\\soft2\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#11 {main}
+"} 
+[2017-12-25 01:05:42] local.ERROR: The "--queued" option does not exist. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\RuntimeException(code: 0): The \"--queued\" option does not exist. at C:\\Server7\\htdocs\\soft2\\soft2\\vendor\\symfony\\console\\Input\\ArgvInput.php:222)
+[stacktrace]
+#0 C:\\Server7\\htdocs\\soft2\\soft2\\vendor\\symfony\\console\\Input\\ArgvInput.php(158): Symfony\\Component\\Console\\Input\\ArgvInput->addLongOption('queued', NULL)
+#1 C:\\Server7\\htdocs\\soft2\\soft2\\vendor\\symfony\\console\\Input\\ArgvInput.php(82): Symfony\\Component\\Console\\Input\\ArgvInput->parseLongOption('--queued')
+#2 C:\\Server7\\htdocs\\soft2\\soft2\\vendor\\symfony\\console\\Input\\Input.php(55): Symfony\\Component\\Console\\Input\\ArgvInput->parse()
+#3 C:\\Server7\\htdocs\\soft2\\soft2\\vendor\\symfony\\console\\Command\\Command.php(210): Symfony\\Component\\Console\\Input\\Input->bind(Object(Symfony\\Component\\Console\\Input\\InputDefinition))
+#4 C:\\Server7\\htdocs\\soft2\\soft2\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(170): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#5 C:\\Server7\\htdocs\\soft2\\soft2\\vendor\\symfony\\console\\Application.php(936): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#6 C:\\Server7\\htdocs\\soft2\\soft2\\vendor\\symfony\\console\\Application.php(240): Symfony\\Component\\Console\\Application->doRunCommand(Object(Illuminate\\Foundation\\Console\\JobMakeCommand), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#7 C:\\Server7\\htdocs\\soft2\\soft2\\vendor\\symfony\\console\\Application.php(148): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 C:\\Server7\\htdocs\\soft2\\soft2\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Application.php(88): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#9 C:\\Server7\\htdocs\\soft2\\soft2\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(121): Illuminate\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#10 C:\\Server7\\htdocs\\soft2\\soft2\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#11 {main}
+"} 
+[2017-12-25 01:07:08] local.ERROR: The "--queuedµ" option does not exist. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\RuntimeException(code: 0): The \"--queuedµ\" option does not exist. at C:\\Server7\\htdocs\\soft2\\soft2\\vendor\\symfony\\console\\Input\\ArgvInput.php:222)
+[stacktrace]
+#0 C:\\Server7\\htdocs\\soft2\\soft2\\vendor\\symfony\\console\\Input\\ArgvInput.php(158): Symfony\\Component\\Console\\Input\\ArgvInput->addLongOption('queued\\xC2\\xB5', NULL)
+#1 C:\\Server7\\htdocs\\soft2\\soft2\\vendor\\symfony\\console\\Input\\ArgvInput.php(82): Symfony\\Component\\Console\\Input\\ArgvInput->parseLongOption('--queued\\xC2\\xB5')
+#2 C:\\Server7\\htdocs\\soft2\\soft2\\vendor\\symfony\\console\\Input\\Input.php(55): Symfony\\Component\\Console\\Input\\ArgvInput->parse()
+#3 C:\\Server7\\htdocs\\soft2\\soft2\\vendor\\symfony\\console\\Command\\Command.php(210): Symfony\\Component\\Console\\Input\\Input->bind(Object(Symfony\\Component\\Console\\Input\\InputDefinition))
+#4 C:\\Server7\\htdocs\\soft2\\soft2\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(170): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#5 C:\\Server7\\htdocs\\soft2\\soft2\\vendor\\symfony\\console\\Application.php(936): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#6 C:\\Server7\\htdocs\\soft2\\soft2\\vendor\\symfony\\console\\Application.php(240): Symfony\\Component\\Console\\Application->doRunCommand(Object(Illuminate\\Foundation\\Console\\JobMakeCommand), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#7 C:\\Server7\\htdocs\\soft2\\soft2\\vendor\\symfony\\console\\Application.php(148): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 C:\\Server7\\htdocs\\soft2\\soft2\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Application.php(88): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#9 C:\\Server7\\htdocs\\soft2\\soft2\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(121): Illuminate\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#10 C:\\Server7\\htdocs\\soft2\\soft2\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#11 {main}
+"} 
+[2017-12-25 01:07:12] local.ERROR: The "--queued" option does not exist. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\RuntimeException(code: 0): The \"--queued\" option does not exist. at C:\\Server7\\htdocs\\soft2\\soft2\\vendor\\symfony\\console\\Input\\ArgvInput.php:222)
+[stacktrace]
+#0 C:\\Server7\\htdocs\\soft2\\soft2\\vendor\\symfony\\console\\Input\\ArgvInput.php(158): Symfony\\Component\\Console\\Input\\ArgvInput->addLongOption('queued', NULL)
+#1 C:\\Server7\\htdocs\\soft2\\soft2\\vendor\\symfony\\console\\Input\\ArgvInput.php(82): Symfony\\Component\\Console\\Input\\ArgvInput->parseLongOption('--queued')
+#2 C:\\Server7\\htdocs\\soft2\\soft2\\vendor\\symfony\\console\\Input\\Input.php(55): Symfony\\Component\\Console\\Input\\ArgvInput->parse()
+#3 C:\\Server7\\htdocs\\soft2\\soft2\\vendor\\symfony\\console\\Command\\Command.php(210): Symfony\\Component\\Console\\Input\\Input->bind(Object(Symfony\\Component\\Console\\Input\\InputDefinition))
+#4 C:\\Server7\\htdocs\\soft2\\soft2\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(170): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#5 C:\\Server7\\htdocs\\soft2\\soft2\\vendor\\symfony\\console\\Application.php(936): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#6 C:\\Server7\\htdocs\\soft2\\soft2\\vendor\\symfony\\console\\Application.php(240): Symfony\\Component\\Console\\Application->doRunCommand(Object(Illuminate\\Foundation\\Console\\JobMakeCommand), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#7 C:\\Server7\\htdocs\\soft2\\soft2\\vendor\\symfony\\console\\Application.php(148): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 C:\\Server7\\htdocs\\soft2\\soft2\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Application.php(88): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#9 C:\\Server7\\htdocs\\soft2\\soft2\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(121): Illuminate\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#10 C:\\Server7\\htdocs\\soft2\\soft2\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#11 {main}
+"} 
+[2017-12-25 01:07:16] local.ERROR: Too many arguments, expected arguments "command" "name". {"exception":"[object] (Symfony\\Component\\Console\\Exception\\RuntimeException(code: 0): Too many arguments, expected arguments \"command\" \"name\". at C:\\Server7\\htdocs\\soft2\\soft2\\vendor\\symfony\\console\\Input\\ArgvInput.php:187)
+[stacktrace]
+#0 C:\\Server7\\htdocs\\soft2\\soft2\\vendor\\symfony\\console\\Input\\ArgvInput.php(86): Symfony\\Component\\Console\\Input\\ArgvInput->parseArgument('?')
+#1 C:\\Server7\\htdocs\\soft2\\soft2\\vendor\\symfony\\console\\Input\\Input.php(55): Symfony\\Component\\Console\\Input\\ArgvInput->parse()
+#2 C:\\Server7\\htdocs\\soft2\\soft2\\vendor\\symfony\\console\\Command\\Command.php(210): Symfony\\Component\\Console\\Input\\Input->bind(Object(Symfony\\Component\\Console\\Input\\InputDefinition))
+#3 C:\\Server7\\htdocs\\soft2\\soft2\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(170): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#4 C:\\Server7\\htdocs\\soft2\\soft2\\vendor\\symfony\\console\\Application.php(936): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 C:\\Server7\\htdocs\\soft2\\soft2\\vendor\\symfony\\console\\Application.php(240): Symfony\\Component\\Console\\Application->doRunCommand(Object(Illuminate\\Foundation\\Console\\JobMakeCommand), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#6 C:\\Server7\\htdocs\\soft2\\soft2\\vendor\\symfony\\console\\Application.php(148): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#7 C:\\Server7\\htdocs\\soft2\\soft2\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Application.php(88): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 C:\\Server7\\htdocs\\soft2\\soft2\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(121): Illuminate\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#9 C:\\Server7\\htdocs\\soft2\\soft2\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#10 {main}
+"} 
+[2017-12-25 01:07:25] local.ERROR: The "--queued" option does not exist. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\RuntimeException(code: 0): The \"--queued\" option does not exist. at C:\\Server7\\htdocs\\soft2\\soft2\\vendor\\symfony\\console\\Input\\ArgvInput.php:222)
+[stacktrace]
+#0 C:\\Server7\\htdocs\\soft2\\soft2\\vendor\\symfony\\console\\Input\\ArgvInput.php(158): Symfony\\Component\\Console\\Input\\ArgvInput->addLongOption('queued', NULL)
+#1 C:\\Server7\\htdocs\\soft2\\soft2\\vendor\\symfony\\console\\Input\\ArgvInput.php(82): Symfony\\Component\\Console\\Input\\ArgvInput->parseLongOption('--queued')
+#2 C:\\Server7\\htdocs\\soft2\\soft2\\vendor\\symfony\\console\\Input\\Input.php(55): Symfony\\Component\\Console\\Input\\ArgvInput->parse()
+#3 C:\\Server7\\htdocs\\soft2\\soft2\\vendor\\symfony\\console\\Command\\Command.php(210): Symfony\\Component\\Console\\Input\\Input->bind(Object(Symfony\\Component\\Console\\Input\\InputDefinition))
+#4 C:\\Server7\\htdocs\\soft2\\soft2\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(170): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#5 C:\\Server7\\htdocs\\soft2\\soft2\\vendor\\symfony\\console\\Application.php(936): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#6 C:\\Server7\\htdocs\\soft2\\soft2\\vendor\\symfony\\console\\Application.php(240): Symfony\\Component\\Console\\Application->doRunCommand(Object(Illuminate\\Foundation\\Console\\JobMakeCommand), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#7 C:\\Server7\\htdocs\\soft2\\soft2\\vendor\\symfony\\console\\Application.php(148): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 C:\\Server7\\htdocs\\soft2\\soft2\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Application.php(88): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#9 C:\\Server7\\htdocs\\soft2\\soft2\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(121): Illuminate\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#10 C:\\Server7\\htdocs\\soft2\\soft2\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#11 {main}
+"} 
