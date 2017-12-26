@@ -58,7 +58,7 @@ public class DBBackUpController {
     	try {
     		Runtime runtime = Runtime.getRuntime();
     		String k = Javaloc.javaloc("lib/mysqldump.exe");
-			k += "  -P 3306 -u SP2Team08 -h 172.20.0.27 -paqwzsxedc123 SP2Team08 --add-drop-database --quick --result-file " + path;
+			k += "  -P 3306 -u SP2Team08 -h 172.20.0.27 -paqwzsxedc123 SP2Team08 --add-drop-database --quick --result-file \"" + path + "\"";
 			System.out.println(k);
     		p = runtime.exec(k);
     		//p = runtime.exec("C:\\Users\\mdexe\\SoftwareProject2\\lib\\mysqldump.exe -P 3306 -u SP2Team08 -h 172.20.0.27 -paqwzsxedc123 SP2Team08 --add-drop-database --quick --result-file " + path);

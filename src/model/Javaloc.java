@@ -13,8 +13,7 @@ public class Javaloc {
 	        a = a.replaceFirst("bin/model/Javaloc.class", b);
 	        a = a.replaceAll("%20", " ");
 	        a = a.substring(6);
-	        System.out.println(a);
-			return a;
+			return "\"" +  a + "\"";
 	    }
 	
     }
