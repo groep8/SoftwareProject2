@@ -17,10 +17,4 @@ public class HashFunctions {
 		}
 		return hashValue;
 	}
-	public static void main(String[] args) {
-		String test = "This is a test";
-		System.out.println(getHash(test.getBytes()));
-		System.out.println(getHash("test".getBytes()));
-		
-	}
 }

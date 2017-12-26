@@ -13,6 +13,7 @@ import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
 import model.Email;
 import model.Main;
+import model.Javaloc;
 
 public class DBBackUpController {
 	private String path;
@@ -56,8 +57,11 @@ public class DBBackUpController {
     	Process p;
     	try {
     		Runtime runtime = Runtime.getRuntime();
-    		p = runtime.exec("C:\\Users\\mdexe\\SoftwareProject2\\lib\\mysqldump.exe -P 3306 -u SP2Team08 -h 172.20.0.27 -paqwzsxedc123 SP2Team08 --add-drop-database --quick --result-file " + path);
-    		
+    		String k = Javaloc.javaloc("lib/mysqldump.exe");
+			k += "  -P 3306 -u SP2Team08 -h 172.20.0.27 -paqwzsxedc123 SP2Team08 --add-drop-database --quick --result-file " + path;
+			System.out.println(k);
+    		p = runtime.exec(k);
+    		//p = runtime.exec("C:\\Users\\mdexe\\SoftwareProject2\\lib\\mysqldump.exe -P 3306 -u SP2Team08 -h 172.20.0.27 -paqwzsxedc123 SP2Team08 --add-drop-database --quick --result-file " + path);
     		int processComplete = p.waitFor();
     		System.out.println(processComplete);
     		if(processComplete == 0) {
@@ -86,7 +90,9 @@ public class DBBackUpController {
     	try {
     		if(pathSql != null) {
     			Runtime rt = Runtime.getRuntime();
-        		p = rt.exec("C:/Users/mdexe/SoftwareProject2/lib/mysql.exe --host 172.20.0.27 --user=SP2Team08 --password=aqwzsxedc123 -D SP2Team08 --execute=\"source "+ pathSql +"\"");
+    			String k = Javaloc.javaloc("lib/mysql.exe");
+    			k += " --host 172.20.0.27 --user=SP2Team08 --password=aqwzsxedc123 -D SP2Team08 --execute=\"source "+ pathSql +"\"";
+        		p = rt.exec(k);
         		int processComplete = p.waitFor();
         		System.out.println(processComplete);
         		if(processComplete == 0) {

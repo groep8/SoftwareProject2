@@ -6,6 +6,7 @@ import java.util.List;
 import javax.persistence.NoResultException;
 
 import org.hibernate.Session;
+import org.hibernate.query.Query;
 
 import model.HashFunctions;
 import model.Login;
@@ -130,10 +131,7 @@ public class LoginDAO {
 		Session session = Main.factory.getCurrentSession();
 		try {
 			session.beginTransaction();
-			Login temp = (Login) session.get(Login.class, l.getIdLogin());
-			temp.setUsername(l.getUsername());
-			temp.setPassword(l.getPassword());
-			temp.setAdmin(l.isAdmin());
+			session.update(l);
 			session.getTransaction().commit();
 			return true;
 		}
