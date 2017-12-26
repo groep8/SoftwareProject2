@@ -6,9 +6,10 @@ import java.util.List;
 import javax.persistence.NoResultException;
 
 import org.hibernate.Session;
+
+import model.HashFunctions;
 import model.Login;
 import model.Main;
-import logic.HashFunctions;
 
 public class LoginDAO {	
 	public static boolean saveLogin(Login l) {

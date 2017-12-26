@@ -1,4 +1,4 @@
-package logic;
+package model;
 
 import java.security.MessageDigest;
 import javax.xml.bind.DatatypeConverter;

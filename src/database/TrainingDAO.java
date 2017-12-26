@@ -121,48 +121,6 @@ public class TrainingDAO  {
 	}
 		return tds;
 	}
-	
-	public static ArrayList<Leerkracht> getallLeerkracht() {
-		Session session = Main.factory.getCurrentSession();
-		
-		ArrayList<Leerkracht> tds = null;
-		
-		try {
-		session.beginTransaction();
-		
-		tds = (ArrayList<Leerkracht>)session.createNativeQuery("SELECT * FROM Leerkracht where archief=0", Leerkracht.class).getResultList();
-		
-
-		session.getTransaction().commit();
-		
-	}
-		catch(Exception e) {
-			e.printStackTrace();
-			
-	}
-		return tds;
-	}
-	
-	public static ArrayList<Leerkracht> getallLeerkrachtDelete() {
-		Session session = Main.factory.getCurrentSession();
-		
-		ArrayList<Leerkracht> tds = null;
-		
-		try {
-		session.beginTransaction();
-		
-		tds = (ArrayList<Leerkracht>)session.createNativeQuery("SELECT * FROM Leerkracht where archief=1", Leerkracht.class).getResultList();
-		
-
-		session.getTransaction().commit();
-		
-	}
-		catch(Exception e) {
-			e.printStackTrace();
-			
-	}
-		return tds;
-	}
 
 	public static void updateTrainingName(int id, String trainingNaam){
 		Session session = Main.factory.getCurrentSession();
