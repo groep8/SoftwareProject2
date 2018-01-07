@@ -20,7 +20,7 @@ public class LoginDAO {
 			session.beginTransaction();
 			
 			Login temp = new Login();
-			temp.setUsername(l.getPassword());
+			temp.setUsername(l.getUsername());
 			temp.setPassword(HashFunctions.getHash(l.getPassword().getBytes()));
 			temp.setAdmin(l.isAdmin());
 			session.save(temp);
