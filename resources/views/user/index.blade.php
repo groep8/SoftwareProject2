@@ -1,4 +1,4 @@
-@extends ('user./layouts/default')
+@extends ('user./layouts/main')
 @section('title')
 Laravel
 @parent
@@ -25,12 +25,12 @@ Laravel
                 <div class="col-sm-6 text-center">
                 <h1>Open Surveys</h1>
                 <br>
-                <ul class="collection with-header">
+                <ul class="collection with-header" style="padding-left:0px;">
                 
         @forelse ($surveys as $survey)
           <li class="collection-item">
             <div>
-                {{  $survey->title}}
+               <a href="user/survey/answers/{{ $survey->id }}"> {{  $survey->title}}</a>
                 <a href="user/survey/view/{{ $survey->id }}" title="Take Survey" class="secondary-content"><i class="material-icons">send</i></a>
             </div>
             </li>

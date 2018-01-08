@@ -12,7 +12,7 @@ Laravel
    <div class="row">
     <div class="input-field col s12">
       <input type="text" name="title" id="title" value="{{ $question->title }}">
-      <label for="title">Qestion</label>
+      <label for="title">Question</label>
     </div>
     <div class="input-field col s12">
     <button class="btn waves-effect waves-light">Update</button>
