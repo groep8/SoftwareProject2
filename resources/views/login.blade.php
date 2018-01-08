@@ -15,6 +15,9 @@
         <style>
             html, body {
                 background-color: #fff;
+                background-image:url("pic.jpeg");
+                background-size: cover;
+                background-position:center;
                 color: #636b6f;
                 font-family: 'Raleway', sans-serif;
                 font-weight: 100;
@@ -47,7 +50,8 @@
             }
 
             .title {
-                font-size: 84px;
+                font-size: 120px;
+                color:white;
             }
 
             .links > a {
@@ -65,6 +69,8 @@
             }
             
 .form-signin {
+    border-radius: 30px;
+
   max-width: 380px;
   padding: 15px 35px 45px;
   margin: 0 auto;
