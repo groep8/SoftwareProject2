@@ -1,5 +1,6 @@
 <?php 
 Route::group(array('prefix' => 'hr' , 'middleware' => 'hr','as'=>'hr.'), function(){
+    Route::get('/',['as' => 'index' , 'uses' => 'SurveyController@home']);
     Route::get('/',['as' => 'survey' , 'uses' => 'SurveyController@home']);
     Route::get('/survey/view/{survey}',['as' => 'view' , 'uses' => 'SurveyController@view_survey']);
     Route::get('/survey/new',['as' => 'new.survey' , 'uses' => 'SurveyController@new_survey']);
