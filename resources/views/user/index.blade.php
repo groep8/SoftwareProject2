@@ -22,10 +22,25 @@ Laravel
                 <br>
                 <button class="btn btn-success open-modal add-request" id="addbutton"> Add Request</button>
                 </div>
+                <div class="col-sm-6 text-center">
+                <h1>Open Surveys</h1>
+                <br>
+                <ul class="collection with-header">
                 
-                
+        @forelse ($surveys as $survey)
+          <li class="collection-item">
+            <div>
+                {{  $survey->title}}
+                <a href="user/survey/view/{{ $survey->id }}" title="Take Survey" class="secondary-content"><i class="material-icons">send</i></a>
+            </div>
+            </li>
+        @empty
+            <p class="flow-text center-align">Nothing to show</p>
+        @endforelse
+                </div>                
             </div>
         </div>
+
         <!-- modal add -->
         <div class="modal fade in" id="add" tabindex="-1" role="dialog" aria-hidden="false">
                 <div class="modal-dialog modal-lg">

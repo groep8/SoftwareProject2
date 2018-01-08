@@ -15,9 +15,15 @@
     <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid-theme.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.5/sweetalert2.css" />
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css">
+      <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker3.min.css"/>
-        <!-- Styles -->
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js"></script>
+   
+
+    <script src="{{ URL::asset('init.js') }}"></script>    <!-- Styles -->
         <style>
             html, body {
                 background-color: #fff;
@@ -70,8 +76,17 @@
                 bottom: 3%;
                 color: red;
                 font-weight: 700;
-                left: 50%;
-                right: 50%;
+                left: 70%;
+                right: 30%;
+            }
+
+            .home{
+                position: absolute;
+                bottom: 3%;
+                color: green;
+                font-weight: 700;
+                left: 30%;
+                right: 70%;
             }
             
             .m-b-md {
@@ -93,5 +108,6 @@
 @yield('content')
 @yield('footer_scripts')
 <a class="logout" href="{{ route('logout') }}" >Logout</a>
+<a class="home" href="{{ route('user.index') }}" >Home </a>
 </body>
 </html>

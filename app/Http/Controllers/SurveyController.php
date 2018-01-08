@@ -66,15 +66,25 @@ class SurveyController extends Controller
   # view survey publicly and complete survey
   public function view_survey(Survey $survey) 
   { 
+    if(Sentinel::getUser()->inRole('user')){
     $survey->option_name = unserialize($survey->option_name);
-    return view('hr.survey.view', compact('survey'));
+    return view('user.survey.view', compact('survey'));}
+    else{
+      $survey->option_name = unserialize($survey->option_name);
+      return view('hr.survey.view', compact('survey'));
+    }
   }
  
   # view submitted answers from current logged in user
   public function view_survey_answers(Survey $survey) 
   {
+    if(Sentinel::getUser()->inRole('hr')){
     $survey->load('questions.answers');
-    return view('hr.answer.view', compact('survey'));
+    return view('hr.answer.view', compact('survey'));}
+    else{
+      $survey->load('questions.answers');
+      return view('user.answer.view', compact('survey'));
+    }
   }
   public function delete_survey(Survey $survey)
   {

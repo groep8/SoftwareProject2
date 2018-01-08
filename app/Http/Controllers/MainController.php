@@ -6,6 +6,9 @@ use Illuminate\Support\MessageBag;
 use Illuminate\Support\Facades\Redirect;
 use Securimage;
 use Sentinel;
+use Auth;
+use App\Survey;
+use App\Answer;
 use View;
 
 class MainController extends Controller
@@ -39,7 +42,10 @@ class MainController extends Controller
         if(Sentinel::check())
         {
             if(Sentinel::getUser()->inRole('user')){
-                return view('user.index');
+              
+                $surveys = Survey::get();
+                
+                      return view('user.index',["surveys"=>$surveys]);
             }
             elseif (Sentinel::getUser()->inRole('hr')) {
                 

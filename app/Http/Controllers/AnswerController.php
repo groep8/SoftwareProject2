@@ -33,6 +33,13 @@ class AnswerController extends Controller
 
      $newAnswer->save();
    };
-   return redirect()->action('SurveyController@view_survey_answers', [$survey->id]);
+   
+   
+    return redirect()->action('SurveyController@view_survey_answers', [$survey->id]);
+    
+    
+  
+
+    
  }
 }
