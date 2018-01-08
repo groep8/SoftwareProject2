@@ -78,12 +78,15 @@ class SurveyController extends Controller
   # view submitted answers from current logged in user
   public function view_survey_answers(Survey $survey) 
   {
+    $user_id = Sentinel::getUser()->id;
     if(Sentinel::getUser()->inRole('hr')){
+     
     $survey->load('questions.answers');
     return view('hr.answer.view', compact('survey'));}
     else{
+     
       $survey->load('questions.answers');
-      return view('user.answer.view', compact('survey'));
+      return view('user.answer.view', compact('survey','user_id'));
     }
   }
   public function delete_survey(Survey $survey)

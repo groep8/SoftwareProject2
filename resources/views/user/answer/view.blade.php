@@ -5,6 +5,7 @@ Laravel
 @stop
 
 @section('content')
+<div class="container">
 <h4>{{ $survey->title }}</h4>
 <table class="bordered striped">
   <thead>
@@ -15,12 +16,17 @@ Laravel
   </thead>
 
   <tbody>
+ 
+
     @forelse ($survey->questions as $item)
     <tr>
       <td>{{ $item->title }}</td>
+      
       @foreach ($item->answers as $answer)
+        @if ($answer->user_id == $user_id)
         <td>{{ $answer->answer }} <br/>
         <small>{{ $answer->created_at }}</small></td>
+        @endif
       @endforeach
     </tr>
     @empty
@@ -33,4 +39,5 @@ Laravel
     @endforelse
   </tbody>
 </table>
+</div>
 @endsection

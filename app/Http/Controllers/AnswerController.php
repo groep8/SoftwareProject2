@@ -34,8 +34,11 @@ class AnswerController extends Controller
      $newAnswer->save();
    };
    
-   
-    return redirect()->action('SurveyController@view_survey_answers', [$survey->id]);
+   if(Sentinel::getUser()->inRole('hr')){
+    return redirect()->route('hr.view.survey.answers', [$survey->id]);}
+    else{
+      return redirect()->route('user.view.survey.answers', [$survey->id]);
+    }
     
     
   
